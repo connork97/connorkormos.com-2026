@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import "./App.css";
+import GitHubActivity from "./components/GitHubActivity";
 
 function App() {
   const frontEndImageSources = [
@@ -59,7 +61,7 @@ function App() {
     {
       name: "Ubuntu",
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg",
-    }
+    },
   ];
 
   const renderImageElements = (
@@ -68,10 +70,10 @@ function App() {
     const imageCount = imageSources.length;
     const minRotation = -45;
     const maxRotation = 45;
-    const rotationStep = imageCount > 1 ? (maxRotation - minRotation) / (imageCount - 1) : 0;
+    const rotationStep =
+      imageCount > 1 ? (maxRotation - minRotation) / (imageCount - 1) : 0;
 
     return imageSources.map((image, index) => {
-
       return (
         <img
           key={`${image.name}-${index}`}
@@ -82,6 +84,65 @@ function App() {
       );
     });
   };
+// const getAllPublicEvents = async (username: string) => {
+//   const allEvents = [];
+//   let page = 1;
+
+//   while (true) {
+//     const response = await fetch(
+//       `https://api.github.com/users/${username}/events/public?per_page=100&page=${page}`,
+//       {
+//         headers: {
+//           Accept: "application/vnd.github+json",
+//         },
+//       }
+//     );
+
+//     if (!response.ok) {
+//       throw new Error(`GitHub API error: ${response.status}`);
+//     }
+
+//     const events = await response.json();
+
+//     if (!Array.isArray(events) || events.length === 0) {
+//       break;
+//     }
+
+//     allEvents.push(...events);
+
+//     if (events.length < 100) {
+//       break;
+//     }
+
+//     page += 1;
+//   }
+
+//   return allEvents;
+// };
+
+// useEffect(() => {
+//   const fetchEvents = async () => {
+//     return await getAllPublicEvents("connork97");
+//   };
+//   fetchEvents().then(events => console.log(events));
+// }, []);
+  // const getGitHubContributions = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://api.github.com/users/connork97/events/public",
+  //     );
+  //     const data = await response.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error("Error fetching GitHub contributions:", error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await getGitHubContributions();
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="app">
@@ -97,6 +158,11 @@ function App() {
         <div className="techStackCard" tabIndex={0}>
           {renderImageElements(otherImageSources)}
         </div>
+      </div>
+      <div>
+        <GitHubActivity />
+        {/* <iframe src="https://pages.codeadam.ca/github-contributions/connork97" width="800" height="190" frameborder="0" allowtransparency id="iframe"></iframe> */}
+        {/* <iframe src="https://github.com/connork97" title="GitHub Profile" width="100%" height="400px" style={{ border: "none" }}></iframe> */}
       </div>
     </div>
   );
