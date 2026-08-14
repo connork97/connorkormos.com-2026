@@ -9,12 +9,22 @@
   padding: 24px;
 }
 
+.mainContentContainer {
+  margin: 2rem auto;
+}
+
 .titleMain {
   font-size: 3rem;
+  line-height: 1;
+  height: 3rem;
+  margin: 0;
 }
 
 .titleSecondary {
   font-size: 2rem;
+  line-height: 1;
+  height: 2rem;
+  margin: 0;
 }
 
 .techStackCard {

@@ -78,8 +78,8 @@ export default function GitHubActivity() {
   }, [gitHubData]);
 
   return (
-    <div className="gitHubActivity">
-      <h2>GitHub Activity</h2>
+    <div className="mainContentContainer">
+      <h2 className="titleSecondary">GitHub Activity</h2>
       <p>Check out my recent contributions on GitHub!</p>
       <div className="gitHubCalendar">
         <div className="gitHubWeekDays">
@@ -139,7 +139,7 @@ export default function GitHubActivity() {
                     position: "relative",
                     height: 0,
                     width: 0,
-                    bottom: `${monthLabel === 'Jan' ? '76%' : '1.5rem'}`,
+                    bottom: `${monthLabel === "Jan" ? "76%" : "1.5rem"}`,
                     // Bottom is imperfect, but very close for now
                   }}
                 >
