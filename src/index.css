@@ -35,3 +35,32 @@ textarea,
 select {
   font: inherit;
 }
+
+
+
+
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.spaceEvenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.spaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spaceAround {
+  display: flex;
+  justify-content: space-around;
+}

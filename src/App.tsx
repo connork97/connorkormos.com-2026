@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="app">
       <Hello />
-      <GitHub />
       <TechStack />
+      <GitHub />
     </div>
   );
 }
