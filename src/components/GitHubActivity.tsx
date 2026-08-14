@@ -20,8 +20,6 @@ export default function GitHubActivity() {
 
   const fetchGitHubContributions = async () => {
     const now = new Date();
-    // const from = new Date();
-    // from.setDate(from.getDate() - 180); // Fetch contributions for the last 180 days
     const from = new Date(now.getFullYear(), 0, 1).toISOString();
     const to = now.toISOString();
 
@@ -58,10 +56,14 @@ export default function GitHubActivity() {
     });
 
     const gitHubData = await response.json();
-    // console.log(data);
     setGitHubData(
       gitHubData.data.user.contributionsCollection.contributionCalendar,
     );
+  };
+
+  const parseUtcDate = (dateString: string) => {
+    const [year, month, day] = dateString.split("-").map(Number);
+    return new Date(Date.UTC(year, month - 1, day));
   };
 
   useEffect(() => {
@@ -90,50 +92,93 @@ export default function GitHubActivity() {
           {/* <span>Sat</span> */}
         </div>
         {gitHubData.weeks ? (
-          gitHubData.weeks.map((week, weekIndex) => (
-            <div key={weekIndex} className="gitHubWeek" style={{justifyContent: `${weekIndex === 0 ? "flex-end" : "flex-start"}`}}>
-              {/* <p>{weekIndex + 1}</p> */}
-              {week.contributionDays.map((day, dayIndex) => {
-                const contributionColors = [
-                  "#ebedf0",
-                  "#9be9a8",
-                  "#40c463",
-                  "#30a14e",
-                  "#216e39",
-                ]; 
-                let color = "#ebedf0";
-                const contributionCount = Math.min(day.contributionCount, 4);
-                if (contributionCount >= 4) {
-                  color = contributionColors[4];
-                } else {
-                  color = contributionColors[contributionCount];
-                }
+          gitHubData.weeks.map((week, weekIndex) => {
+            const monthsOfYear = [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec",
+            ];
+            const firstDayOfWeek = week.contributionDays[0];
+            const firstDayOfWeekDate = parseUtcDate(firstDayOfWeek.date);
+            const firstDayOfWeekDay = firstDayOfWeekDate.getUTCDate();
+            const firstDayOfWeekMonth = firstDayOfWeekDate.getUTCMonth();
 
-                return (
-                  <div
-                    key={dayIndex}
-                    className="gitHubDay"
-                    style={{ backgroundColor: color }}
-                    // className={`day ${day.contributionCount > 0 ? "active" : ""}`}
-                    title={`${day.date}: ${day.contributionCount} contributions`}
-                  ></div>
-                );
-              })}
-              {/* {week.contributionDays.map((day, dayIndex) => (
-                <div
-                  key={dayIndex}
-                  className={`day ${day.contributionCount > 0 ? "active" : ""}`}
-                  title={`${day.date}: ${day.contributionCount} contributions`}
-                ></div>
-              ))} */}
-            </div>
-          ))
+            const previousWeek = gitHubData.weeks[weekIndex - 1];
+            const previousWeekFirstDay = previousWeek?.contributionDays[0];
+            const previousWeekMonth = previousWeekFirstDay
+              ? parseUtcDate(previousWeekFirstDay.date).getUTCMonth()
+              : null;
+
+            let monthLabel = "";
+            if (
+              firstDayOfWeekDay <= 7 &&
+              previousWeekMonth !== firstDayOfWeekMonth
+            ) {
+              monthLabel = monthsOfYear[firstDayOfWeekMonth];
+            }
+            return (
+              <div
+                key={weekIndex}
+                className="gitHubWeek"
+                style={{
+                  justifyContent: `${weekIndex === 0 ? "flex-end" : "flex-start"}`,
+                }}
+              >
+                <span
+                  style={{
+                    color: "#6b7280",
+                    position: "relative",
+                    height: 0,
+                    width: 0,
+                    bottom: `${monthLabel === 'Jan' ? '76%' : '1.5rem'}`,
+                    // Bottom is imperfect, but very close for now
+                  }}
+                >
+                  {monthLabel}
+                </span>
+                {week.contributionDays.map((day, dayIndex) => {
+                  const contributionColors = [
+                    "#ebedf0",
+                    "#9be9a8",
+                    "#40c463",
+                    "#30a14e",
+                    "#216e39",
+                  ];
+                  let color = "#ebedf0";
+                  const contributionCount = Math.min(day.contributionCount, 4);
+                  if (contributionCount >= 4) {
+                    color = contributionColors[4];
+                  } else {
+                    color = contributionColors[contributionCount];
+                  }
+
+                  return (
+                    <div
+                      key={dayIndex}
+                      className="gitHubDay"
+                      style={{ backgroundColor: color }}
+                      title={`${day.date}: ${day.contributionCount} contributions`}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })
         ) : (
           <p>Loading contributions...</p>
         )}
       </div>
       <div className="totalContributions">
-        Total Contributions: {gitHubData.totalContributions || 0}
+        Year to Date Contributions: {gitHubData.totalContributions || 0}
       </div>
       <div className="githubLink">
         <a

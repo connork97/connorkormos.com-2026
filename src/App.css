@@ -35,15 +35,18 @@
 
 .gitHubCalendar {
   display: flex;
+  position: relative;
+  height: fit-content;
   width: fit-content;
   margin: auto;
-  padding: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-  background-color: rgba(249, 250, 251, 0.5); /* convert to rgba */
+  background-color: rgba(249, 250, 251, 0.5);
 }
 
 .gitHubWeek {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -53,7 +56,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  color: #6b7280; /* Tailwind's gray-500 */
+  color: #6b7280;
 }
 
 .gitHubWeekDay {
