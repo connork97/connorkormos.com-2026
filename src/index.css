@@ -36,6 +36,9 @@ select {
   font: inherit;
 }
 
+p {
+  margin: 0 auto;
+}
 
 
 

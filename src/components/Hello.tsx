@@ -115,7 +115,7 @@ export default function Hello() {
     <div className="mainContentContainer">
       <h1
         className="titleMain helloString"
-        style={{ width: `${helloString.length}ch` }}
+        // style={{ width: `${helloString.length}ch` }}
       >
         {helloString}
         {iAmStringBase.length === 0 && caret}
