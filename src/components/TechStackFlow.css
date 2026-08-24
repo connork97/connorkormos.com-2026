@@ -1,0 +1,8 @@
+.react-flow__node {
+   width: auto;
+   height: auto;
+}
+
+.react-flow__handle {
+   visibility: hidden;
+}

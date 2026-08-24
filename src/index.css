@@ -23,11 +23,15 @@ body {
   min-height: 100vh;
 }
 
-img,
+/* img,
 svg {
   display: block;
   max-width: 100%;
-}
+} */
+
+/* .react-flow__edges svg { */
+  /* max-width: none; */
+/* } */
 
 button,
 input,
