@@ -3,16 +3,22 @@ import {
   ReactFlow,
   Handle,
   Position,
-  Background,
-  Controls,
   applyEdgeChanges,
   applyNodeChanges,
+  type CoordinateExtent,
+  type Edge,
   type EdgeChange,
+  type Node,
   type NodeChange,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
 import "./TechStackFlow.css";
+
+// const nodeExtent: CoordinateExtent = [
+//   [-200, -175],
+//   [250, 500],
+// ];
 
 export function TechStackFlow() {
   const techStackImageSources = {
@@ -109,28 +115,13 @@ export function TechStackFlow() {
   };
 
   const onNodesChange = useCallback(
-    (
-      changes: NodeChange<{
-        id: string;
-        data: { label: React.ReactNode };
-        position: { x: number; y: number };
-        type: string;
-      }>[],
-    ) => setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
+    (changes: NodeChange<Node>[]) =>
+      setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
     [],
   );
   const onEdgesChange = useCallback(
-    (
-      changes: EdgeChange<{
-        id: string;
-        source: string;
-        sourceHandle: string;
-        target: string;
-        targetHandle: string;
-        type: string;
-        label: string;
-      }>[],
-    ) => setEdges((edgesSnapshot) => applyEdgeChanges(changes, edgesSnapshot)),
+    (changes: EdgeChange<Edge>[]) =>
+      setEdges((edgesSnapshot) => applyEdgeChanges(changes, edgesSnapshot)),
     [],
   );
 
@@ -139,7 +130,7 @@ export function TechStackFlow() {
       <img
         src={techStackItem.src}
         alt={techStackItem.name}
-        style={{ width: "25px", height: "25px" }}
+      //   style={{width: "40px", height: "40px" }}
       />
       <Handle id="top" type="source" position={Position.Top} />
       <Handle id="top" type="target" position={Position.Top} />
@@ -154,11 +145,10 @@ export function TechStackFlow() {
   {
     /* <p>{techStackItem.name}</p> */
   }
-  const initialNodes = [
+  const initialNodes: Node[] = [
     {
       id: "javaScript",
       position: { x: -200, y: -100 },
-      style: { width: 50 },
       data: {
         label: techStackNodeLabel(techStackImageSources.javaScript),
       },
@@ -167,91 +157,101 @@ export function TechStackFlow() {
     {
       id: "typeScript",
       position: { x: -100, y: -100 },
-      style: { width: 50 },
       data: {
         label: techStackNodeLabel(techStackImageSources.typeScript),
       },
       type: "default",
     },
-    {
-      id: "frontEnd",
-      position: { x: -25, y: 0 },
-      style: { width: 100},
-      data: {
-        label: (
-          <div>
-            Front-End
-            <Handle id="top" type="source" position={Position.Top} />
-            <Handle id="top" type="target" position={Position.Top} />
-            <Handle id="bottom" type="source" position={Position.Bottom} />
-            <Handle id="bottom" type="target" position={Position.Bottom} />
-            <Handle id="left" type="source" position={Position.Left} />
-            <Handle id="left" type="target" position={Position.Left} />
-            <Handle id="right" type="source" position={Position.Right} />
-            <Handle id="right" type="target" position={Position.Right} />
-          </div>
-        ),
-      },
-      type: "default",
-    },
+   //  {
+   //    id: "frontEnd",
+   //    position: { x: -25, y: 0 },
+   //    style: { width: 100},
+   //    data: {
+   //      label: (
+   //        <div>
+   //          Front-End
+   //          <Handle id="top" type="source" position={Position.Top} />
+   //          <Handle id="top" type="target" position={Position.Top} />
+   //          <Handle id="bottom" type="source" position={Position.Bottom} />
+   //          <Handle id="bottom" type="target" position={Position.Bottom} />
+   //          <Handle id="left" type="source" position={Position.Left} />
+   //          <Handle id="left" type="target" position={Position.Left} />
+   //          <Handle id="right" type="source" position={Position.Right} />
+   //          <Handle id="right" type="target" position={Position.Right} />
+   //        </div>
+   //      ),
+   //    },
+   //    type: "default",
+   //  },
     {
       id: "html",
       position: { x: 100, y: -100 },
-      style: { width: 50 },
       data: {
         label: techStackNodeLabel(techStackImageSources.html),
       },
-      type: "default",
     },
     {
       id: "css",
       position: { x: 200, y: -100 },
-      style: { width: 50 },
       data: {
         label: techStackNodeLabel(techStackImageSources.css),
       },
-      type: "default",
     },
     {
       id: 'reactRouter',
-      position: { x: -100, y: 100 },
-      style: { width: 50 },
+      position: { x: -125, y: 0 },
       data: {
         label: techStackNodeLabel(techStackImageSources.reactRouter),
       },
-      type: "default",
     },
     {
       id: "react",
-      position: { x: 0, y: 100 },
-      style: { width: 50 },
+      position: { x: 0, y: 25 },
       data: {
         label: techStackNodeLabel(techStackImageSources.react),
       },
-      type: "default",
     },
     {
       id: "redux",
-      position: { x: 100, y: 100 },
-      style: { width: 50 },
+      position: { x: 125, y: 0 },
       data: {
         label: techStackNodeLabel(techStackImageSources.redux),
       },
-      type: "default",
+    },
+    {
+      id: 'python',
+      position: { x: -125, y: 150 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.python),
+      },
+    },
+    {
+      id: 'flask',
+      position: { x: 0, y: 175 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.flask),
+      },
+    },
+    {
+      id: 'sqlAlchemy',
+      position: { x: 125, y: 150 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.sqlAlchemy),
+      },
+    },
+    {
+      id: 'postgres',
+      position: { x: 0, y: 300 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.postgres),
+      },
     },
   ];
 
-  type TechStackEdge = {
-      id: string;
-      source: string;
-      sourceHandle?: string;
-      target: string;
-      targetHandle?: string;
-      type?: string;
-      label?: string;
-      animated?: boolean;
-  }
-  const initialEdges: TechStackEdge[] = [
+  initialNodes.forEach((node) => {
+   node.style = { width: 50, height: 50 };
+  });
+  const initialEdges: Edge[] = [
     {
       id: "javaScript-typeScript",
       source: "javaScript",
@@ -261,12 +261,18 @@ export function TechStackFlow() {
       // label: "",
     },
     {
-      id: "typeScript-frontEnd",
+      id: "typeScript-react",
       source: "typeScript",
       sourceHandle: "right",
-      target: "frontEnd",
+      target: "react",
       targetHandle: "top",
-    },
+    },   //  {
+   //    id: "typeScript-frontEnd",
+   //    source: "typeScript",
+   //    sourceHandle: "right",
+   //    target: "frontEnd",
+   //    targetHandle: "top",
+   //  },
     {
       id: "html-css",
       source: "css",
@@ -275,19 +281,25 @@ export function TechStackFlow() {
       targetHandle: "right",
     },
     {
-      id: "html-frontEnd",
+      id: "html-react",
       source: "html",
       sourceHandle: 'left',
-      target: "frontEnd",
+      target: "react",
       targetHandle: 'top',
-    },
-    {
-      id: 'frontEnd-react',
-      source: 'frontEnd',
-      sourceHandle: 'bottom',
-      target: 'react',
-      targetHandle: 'top',
-    },
+    },   //  {
+   //    id: "html-frontEnd",
+   //    source: "html",
+   //    sourceHandle: 'left',
+   //    target: "frontEnd",
+   //    targetHandle: 'top',
+   //  },
+   //  {
+   //    id: 'frontEnd-react',
+   //    source: 'frontEnd',
+   //    sourceHandle: 'bottom',
+   //    target: 'react',
+   //    targetHandle: 'top',
+   //  },
     {
       id: 'reactRouter-react',
       source: 'reactRouter',
@@ -302,6 +314,34 @@ export function TechStackFlow() {
       target: 'react',
       targetHandle: 'right',
     },
+    {
+      id: 'react-flask',
+      source: 'react',
+      sourceHandle: 'bottom',
+      target: 'flask',
+      targetHandle: 'top',
+    },
+    {
+      id: 'python-flask',
+      source: 'python',
+      sourceHandle: 'right',
+      target: 'flask',
+      targetHandle: 'left',
+    },
+    {
+      id: 'sqlAlchemy-flask',
+      source: 'sqlAlchemy',
+      sourceHandle: 'left',
+      target: 'flask',
+      targetHandle: 'right',
+    },
+    {
+      id: 'flask-postgres',
+      source: 'flask',
+      sourceHandle: 'bottom',
+      target: 'postgres',
+      targetHandle: 'top',
+    },
   ];
 
   initialEdges.forEach((edge) => {
@@ -312,19 +352,29 @@ export function TechStackFlow() {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
   return (
-    <div style={{ height: "40rem" }}>
+   <div>
+      <h1>My Primary Tech Stack</h1>
+    <div style={{ marginTop: '10rem', height: "50rem", width: '100%' }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
+      //   nodeExtent={nodeExtent}
         fitView
+        panOnDrag={false}
+        panOnScroll={false}
+        autoPanOnNodeDrag={false}
+        autoPanOnConnect={false}
         zoomOnScroll={false}
-      //   colorMode="system"
+        zoomOnPinch={false}
+        zoomOnDoubleClick={false}
+        colorMode="system"
       >
         {/* <Background /> */}
         {/* <Controls /> */}
       </ReactFlow>
     </div>
+   </div>
   );
 }
