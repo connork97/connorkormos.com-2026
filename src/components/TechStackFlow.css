@@ -14,3 +14,16 @@
 .react-flow__panel {
    display: none;
 }
+
+.techExperiencePopup {
+   /* min-width: 12rem; */
+   text-align: center;
+   font-weight: bold;
+   padding: 1rem;
+   border: 1px solid rgb(255 255 255 / 12%);
+   border-radius: 0.75rem;
+   color: #f3f4f6;
+   background: #21242b;
+   box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 35%);
+   pointer-events: none;
+}

@@ -10,6 +10,7 @@
   border: 1px solid rgba(249, 250, 251, 0.1);
   border-radius: 0.5rem;
   background-color: rgba(249, 250, 251, 0.01);
+  color: #8c8c8c;
 }
 
 .gitHubWeek {
@@ -25,7 +26,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-right: 0.5rem;
-  color: #6b7280;
+  /* color: #6b7280; */
 }
 
 .gitHubDay {

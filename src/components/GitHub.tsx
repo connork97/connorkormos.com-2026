@@ -118,7 +118,6 @@ export default function GitHub() {
       >
         <span
           style={{
-            color: "#6b7280",
             position: "relative",
             height: 0,
             width: 0,

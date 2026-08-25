@@ -32,8 +32,7 @@ const nodeExtent: CoordinateExtent = [
   [250, 250],
 ];
 
-export function TechStackFlow() {
-
+export function TechStackSecondary() {
   const onNodesChange = useCallback(
     (changes: NodeChange<TechStackNode>[]) =>
       setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
@@ -43,6 +42,20 @@ export function TechStackFlow() {
     (changes: EdgeChange<Edge>[]) =>
       setEdges((edgesSnapshot) => applyEdgeChanges(changes, edgesSnapshot)),
     [],
+  );
+
+  const techStackSectionLabel = (sectionName: string) => (
+    <div>
+      <h3 style={{ margin: 0 }}>{sectionName}</h3>
+      <Handle id="top" type="source" position={Position.Top} />
+      <Handle id="top" type="target" position={Position.Top} />
+      <Handle id="bottom" type="source" position={Position.Bottom} />
+      <Handle id="bottom" type="target" position={Position.Bottom} />
+      <Handle id="left" type="source" position={Position.Left} />
+      <Handle id="left" type="target" position={Position.Left} />
+      <Handle id="right" type="source" position={Position.Right} />
+      <Handle id="right" type="target" position={Position.Right} />
+    </div>
   );
 
   const techStackNodeLabel = (techStackItem: { name: string; src: string }) => (
@@ -71,102 +84,123 @@ export function TechStackFlow() {
     /* <p>{techStackItem.name}</p> */
   }
   const initialNodes: TechStackNode[] = [
-   //  {
-   //    id: "techStackLabel",
-   //    position: { x: -75, y: -200 },
-   //    style: { width: 200 },
-   //    data: {
-   //      label: (
-   //        <div>
-   //          <h3 style={{ margin: 0 }}>My Go To Tech Stack</h3>
-   //          <Handle id="top" type="source" position={Position.Top} />
-   //          <Handle id="top" type="target" position={Position.Top} />
-   //          <Handle id="bottom" type="source" position={Position.Bottom} />
-   //          <Handle id="bottom" type="target" position={Position.Bottom} />
-   //          <Handle id="left" type="source" position={Position.Left} />
-   //          <Handle id="left" type="target" position={Position.Left} />
-   //          <Handle id="right" type="source" position={Position.Right} />
-   //          <Handle id="right" type="target" position={Position.Right} />
-   //        </div>
-   //      ),
-   //    },
-   //  },
+    //  {
+    //    id: "techStackLabel",
+    //    position: { x: -75, y: -200 },
+    //    style: { width: 200 },
+    //    data: {
+    //      label: (
+    //        <div>
+    //          <h3 style={{ margin: 0 }}>My Go To Tech Stack</h3>
+    //          <Handle id="top" type="source" position={Position.Top} />
+    //          <Handle id="top" type="target" position={Position.Top} />
+    //          <Handle id="bottom" type="source" position={Position.Bottom} />
+    //          <Handle id="bottom" type="target" position={Position.Bottom} />
+    //          <Handle id="left" type="source" position={Position.Left} />
+    //          <Handle id="left" type="target" position={Position.Left} />
+    //          <Handle id="right" type="source" position={Position.Right} />
+    //          <Handle id="right" type="target" position={Position.Right} />
+    //        </div>
+    //      ),
+    //    },
+    //  },
     {
-      id: "javaScript",
-      position: { x: -175, y: -215 },
+      id: "additionalFrontEndLabel",
+      position: { x: -200, y: -100 },
+      style: { width: 200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.javaScript),
+        label: techStackSectionLabel("Front-End"),
       },
-
+      type: "label",
     },
     {
-      id: "typeScript",
-      position: { x: -75, y: -200 },
+      id: "jQuery",
+      position: { x: -175, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.typeScript),
-      },
-    },
-    {
-      id: "html",
-      position: { x: 75, y: -200 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.html),
+        label: techStackNodeLabel(techStackImageSources.jQuery),
       },
     },
     {
-      id: "css",
-      position: { x: 175, y: -215 },
+      id: "nextJs",
+      position: { x: -75, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.css),
+        label: techStackNodeLabel(techStackImageSources.nextJs),
       },
     },
     {
-      id: "reactRouter",
-      position: { x: -125, y: -100 },
+      id: "additionalBackEndAndDataLabel",
+      position: { x: 50, y: -100 },
+      style: { width: 200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.reactRouter),
+        label: techStackSectionLabel("Back-End & Data"),
+      },
+      type: "label",
+    },
+    {
+      id: "mySQL",
+      position: { x: 75, y: 0 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.mySQL),
       },
     },
     {
-      id: "react",
-      position: { x: 0, y: -75 },
+      id: "socketIo",
+      position: { x: 175, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.react),
+        label: techStackNodeLabel(techStackImageSources.socketIo),
       },
     },
     {
-      id: "redux",
-      position: { x: 125, y: -100 },
+      id: "cloudAndDeploymentLabel",
+      position: { x: 300, y: -100 },
+      style: { width: 200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.redux),
+        label: techStackSectionLabel("Cloud & Deployment"),
+      },
+      type: "label",
+    },
+    {
+      id: "aws",
+      position: { x: 300, y: 0 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.aws),
       },
     },
     {
-      id: "python",
-      position: { x: -125, y: 25 },
+      id: "railway",
+      position: { x: 400, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.python),
+        label: techStackNodeLabel(techStackImageSources.railway),
       },
     },
     {
-      id: "flask",
-      position: { x: 0, y: 50 },
+      id: "vercel",
+      position: { x: 500, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.flask),
+        label: techStackNodeLabel(techStackImageSources.vercel),
       },
     },
     {
-      id: "sqlAlchemy",
-      position: { x: 125, y: 25 },
+      id: "otherToolsLabel",
+      position: { x: 600, y: -100 },
+      style: { width: 200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.sqlAlchemy),
+        label: techStackSectionLabel("Other Tools"),
+      },
+      type: "label",
+    },
+    {
+      id: "git",
+      position: { x: 600, y: 0 },
+      data: {
+        label: techStackNodeLabel(techStackImageSources.git),
       },
     },
     {
-      id: "postgres",
-      position: { x: 0, y: 175 },
+      id: "ubuntu",
+      position: { x: 700, y: 0 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.postgres),
+        label: techStackNodeLabel(techStackImageSources.ubuntu),
       },
     },
   ];
@@ -175,84 +209,22 @@ export function TechStackFlow() {
     if (!node.style) {
       node.style = { width: 45, height: 45 };
     }
-    node.data.yearsExperience = techStackImageSources[node.id as keyof typeof techStackImageSources]?.yearsExperience;
-    node.data.name = techStackImageSources[node.id as keyof typeof techStackImageSources]?.name;
-    node.type = "default";
+    if (node.type !== "label") {
+      node.data.yearsExperience =
+        techStackImageSources[
+          node.id as keyof typeof techStackImageSources
+        ]?.yearsExperience;
+    }
+    node.data.name =
+      techStackImageSources[
+        node.id as keyof typeof techStackImageSources
+      ]?.name;
+    // if (!node.type) {
+    //   node.type = "default";
+    // }
   });
   const initialEdges: Edge[] = [
-    {
-      id: "javaScript-typeScript",
-      source: "javaScript",
-      sourceHandle: "right",
-      target: "typeScript",
-      targetHandle: "left",
-      // label: "",
-    },
-    {
-      id: "typeScript-react",
-      source: "typeScript",
-      sourceHandle: "right",
-      target: "react",
-      targetHandle: "top",
-    },
-    {
-      id: "html-css",
-      source: "css",
-      sourceHandle: "left",
-      target: "html",
-      targetHandle: "right",
-    },
-    {
-      id: "html-react",
-      source: "html",
-      sourceHandle: "left",
-      target: "react",
-      targetHandle: "top",
-    },
-    {
-      id: "reactRouter-react",
-      source: "reactRouter",
-      sourceHandle: "right",
-      target: "react",
-      targetHandle: "left",
-    },
-    {
-      id: "react-redux",
-      source: "redux",
-      sourceHandle: "left",
-      target: "react",
-      targetHandle: "right",
-    },
-    {
-      id: "react-flask",
-      source: "react",
-      sourceHandle: "bottom",
-      target: "flask",
-      targetHandle: "top",
-      // label: 'HTTP/API'
-    },
-    {
-      id: "python-flask",
-      source: "python",
-      sourceHandle: "right",
-      target: "flask",
-      targetHandle: "left",
-    },
-    {
-      id: "sqlAlchemy-flask",
-      source: "sqlAlchemy",
-      sourceHandle: "left",
-      target: "flask",
-      targetHandle: "right",
-    },
-    {
-      id: "flask-postgres",
-      source: "flask",
-      sourceHandle: "bottom",
-      target: "postgres",
-      targetHandle: "top",
-      // label: 'Server to DB'
-    },
+   
   ];
 
   initialEdges.forEach((edge) => {
@@ -266,18 +238,20 @@ export function TechStackFlow() {
 
   return (
     <div>
-      <h1 style={{ margin: "auto", textAlign: "center" }}>
-        My Primary Tech Stack
-      </h1>
-      <div style={{ marginTop: "5rem", height: "45rem", width: "100%" }}>
+      <h1 style={{ margin: "auto", textAlign: "center" }}>Additional Tech</h1>
+      <div style={{ marginTop: "5rem", height: "25rem", width: "100%" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
-          onNodeMouseEnter={(_event, node) => setHoveredTech(node)}
+          onNodeMouseEnter={(_event, node) => {
+            if (node.type !== "label") {
+              setHoveredTech(node);
+            }
+          }}
           onNodeMouseLeave={() => setHoveredTech(null)}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
-          nodeExtent={nodeExtent}
+          //  nodeExtent={nodeExtent}
           fitView
           panOnDrag={false}
           panOnScroll={false}
