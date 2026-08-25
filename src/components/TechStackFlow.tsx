@@ -353,8 +353,8 @@ export function TechStackFlow() {
   const [edges, setEdges] = useState(initialEdges);
   return (
    <div>
-      <h1>My Primary Tech Stack</h1>
-    <div style={{ marginTop: '10rem', height: "50rem", width: '100%' }}>
+      <h1 style={{margin: 'auto', textAlign: 'center'}}>My Primary Tech Stack</h1>
+    <div style={{ marginTop: '5rem', height: "50rem", width: '100%' }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

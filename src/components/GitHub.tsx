@@ -129,19 +129,26 @@ export default function GitHub() {
           {monthLabel}
         </span>
         {week.contributionDays.map((day, dayIndex) => {
-          const contributionColors = [
+          const contributionColorsLight = [
             "#ebedf0",
             "#9be9a8",
             "#40c463",
             "#30a14e",
             "#216e39",
           ];
+          const contributionColorsDark = [
+            "#2121219d",
+            "#0e4429",
+            "#006d32",
+            "#26a641",
+            "#39d353",
+          ];
           let color = "#ebedf0";
           const contributionCount = Math.min(day.contributionCount, 4);
           if (contributionCount >= 4) {
-            color = contributionColors[4];
+            color = contributionColorsDark[4];
           } else {
-            color = contributionColors[contributionCount];
+            color = contributionColorsDark[contributionCount];
           }
 
           return (

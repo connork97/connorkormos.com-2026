@@ -7,9 +7,9 @@
   /* width: fit-content; */
   margin: auto;
   padding: 2rem 1rem 1rem 1rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid rgba(249, 250, 251, 0.1);
   border-radius: 0.5rem;
-  background-color: rgba(249, 250, 251, 0.5);
+  background-color: rgba(249, 250, 251, 0.01);
 }
 
 .gitHubWeek {
@@ -37,5 +37,5 @@
   /* height: 1.35rem; */
   margin: 1px;
   border-radius: 2px;
-  background-color: #ebedf0;
+  /* background-color: #ebedf0; */
 }
