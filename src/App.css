@@ -4,7 +4,8 @@
 }
 
 .app {
-  width: min(100%, 60rem);
+  
+  width: min(50%, 60rem);
   height: 100vh;
   min-height: 100vh;
   margin: 0 auto;

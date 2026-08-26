@@ -20,9 +20,10 @@ import { techStackImageSources } from "../lib/TechStackSources";
 import "./TechStackFlow.css";
 
 type TechStackData = {
-  label: React.ReactNode;
+  label?: React.ReactNode;
   yearsExperience?: number;
   name?: string;
+  group?: string;
 };
 
 type TechStackNode = Node<TechStackData>;
@@ -63,12 +64,15 @@ export function TechStackSecondary() {
       <img
         src={techStackItem.src}
         alt={techStackItem.name}
-        style={
-          techStackItem.name === "Flask" || techStackItem.name === "SQLAlchemy"
-            ? { filter: "brightness(0) invert(1)" }
-            : {}
-        }
-        //   style={{width: "40px", height: "40px" }}
+        style={{
+          width: "40px",
+          height: "40px",
+          filter:
+            techStackItem.name === "Flask" ||
+            techStackItem.name === "SQLAlchemy"
+              ? "brightness(0) invert(1)"
+              : "none",
+        }}
       />
       <Handle id="top" type="source" position={Position.Top} />
       <Handle id="top" type="target" position={Position.Top} />
@@ -84,147 +88,175 @@ export function TechStackSecondary() {
     /* <p>{techStackItem.name}</p> */
   }
   const initialNodes: TechStackNode[] = [
-    //  {
-    //    id: "techStackLabel",
-    //    position: { x: -75, y: -200 },
-    //    style: { width: 200 },
-    //    data: {
-    //      label: (
-    //        <div>
-    //          <h3 style={{ margin: 0 }}>My Go To Tech Stack</h3>
-    //          <Handle id="top" type="source" position={Position.Top} />
-    //          <Handle id="top" type="target" position={Position.Top} />
-    //          <Handle id="bottom" type="source" position={Position.Bottom} />
-    //          <Handle id="bottom" type="target" position={Position.Bottom} />
-    //          <Handle id="left" type="source" position={Position.Left} />
-    //          <Handle id="left" type="target" position={Position.Left} />
-    //          <Handle id="right" type="source" position={Position.Right} />
-    //          <Handle id="right" type="target" position={Position.Right} />
-    //        </div>
-    //      ),
-    //    },
-    //  },
     {
-      id: "additionalFrontEndLabel",
-      position: { x: -200, y: -100 },
+      id: 'frontEndGroup',
+      position: { x: -400, y: -200 },
+      style: { width: 300, height: 225, backgroundColor: 'grey', borderRadius: '10px', opacity: 0.05 },
+      data: {},
+      type: 'group',
+    },
+    {
+      id: "frontEndLabel",
+      position: { x: 150, y: 50 },
       style: { width: 200 },
       data: {
         label: techStackSectionLabel("Front-End"),
       },
-      type: "label",
+      parentId: 'frontEndGroup'
     },
     {
       id: "jQuery",
-      position: { x: -175, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.jQuery),
-      },
+      position: { x: 100, y: 150 },
+      data: {},
+      parentId: 'frontEndGroup'
     },
     {
       id: "nextJs",
-      position: { x: -75, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.nextJs),
-      },
+      position: { x: 200, y: 150 },
+      data: {},
+      parentId: 'frontEndGroup'
     },
     {
-      id: "additionalBackEndAndDataLabel",
-      position: { x: 50, y: -100 },
+      id: 'backEndGroup',
+      position: { x: 0, y: -200 },
+      style: { width: 300, height: 225, backgroundColor: 'grey', borderRadius: '10px', opacity: 0.05 },
+      data: {},
+      type: 'group',
+    },
+    {
+      id: "backEndAndDataLabel",
+      position: { x: 150, y: 50 },
       style: { width: 200 },
       data: {
         label: techStackSectionLabel("Back-End & Data"),
       },
       type: "label",
+      parentId: 'backEndGroup',
     },
     {
-      id: "mySQL",
-      position: { x: 75, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.mySQL),
-      },
+      id: "mySql",
+      position: { x: 100, y: 150 },
+      data: {},
+      parentId: 'backEndGroup',
     },
     {
       id: "socketIo",
-      position: { x: 175, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.socketIo),
-      },
+      position: { x: 200, y: 150 },
+      data: {},
+      parentId: 'backEndGroup',
+    },
+    {
+      id: 'cloudAndDeploymentGroup',
+      position: {x: -400, y: 100 },
+      style: { width: 300, height: 225, backgroundColor: 'grey', borderRadius: '10px', opacity: 0.05 },
+      data: {},
+      type: 'group',
     },
     {
       id: "cloudAndDeploymentLabel",
-      position: { x: 300, y: -100 },
+      position: { x: 150, y: 50 },
       style: { width: 200 },
       data: {
         label: techStackSectionLabel("Cloud & Deployment"),
       },
+      parentId: 'cloudAndDeploymentGroup',
       type: "label",
     },
     {
       id: "aws",
-      position: { x: 300, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.aws),
-      },
+      position: { x: 50, y: 150 },
+      data: {},
+      parentId: 'cloudAndDeploymentGroup',
     },
     {
       id: "railway",
-      position: { x: 400, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.railway),
-      },
+      position: { x: 150, y: 165 },
+      data: {},
+      parentId: 'cloudAndDeploymentGroup',
     },
     {
       id: "vercel",
-      position: { x: 500, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.vercel),
-      },
+      position: { x: 250, y: 150 },
+      data: {},
+      parentId: 'cloudAndDeploymentGroup',
+    },
+    {
+      id: 'otherToolsGroup',
+      position: {x: 0, y: 100 },
+      style: { width: 300, height: 225, backgroundColor: 'grey', borderRadius: '10px', opacity: 0.05 },
+      data: {},
+      type: 'group',
     },
     {
       id: "otherToolsLabel",
-      position: { x: 600, y: -100 },
+      position: { x: 150, y: 50 },
       style: { width: 200 },
       data: {
         label: techStackSectionLabel("Other Tools"),
       },
+      parentId: 'otherToolsGroup',
       type: "label",
     },
     {
       id: "git",
-      position: { x: 600, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.git),
-      },
+      position: { x: 100, y: 150 },
+      data: {},
+      parentId: 'otherToolsGroup',
     },
     {
       id: "ubuntu",
-      position: { x: 700, y: 0 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.ubuntu),
-      },
+      position: { x: 200, y: 150 },
+      data: {},
+      parentId: 'otherToolsGroup',
     },
   ];
 
   initialNodes.forEach((node) => {
-    if (!node.style) {
-      node.style = { width: 45, height: 45 };
-    }
-    if (node.type !== "label") {
+    //  if (!node.style) {
+    //    node.style = { width: 'auto', height: 'auto' };
+    //  }
+    if (node.type !== "group" && !node.data.label) {
+      node.data.label = techStackNodeLabel(
+        techStackImageSources[node.id as keyof typeof techStackImageSources],
+      );
       node.data.yearsExperience =
         techStackImageSources[
           node.id as keyof typeof techStackImageSources
         ]?.yearsExperience;
+      node.data.name =
+        techStackImageSources[
+          node.id as keyof typeof techStackImageSources
+        ]?.name;
     }
-    node.data.name =
-      techStackImageSources[
-        node.id as keyof typeof techStackImageSources
-      ]?.name;
     // if (!node.type) {
     //   node.type = "default";
     // }
   });
+
+  const createEdge = (
+    source: string,
+    target: string,
+    fromSide: "left" | "right" | "top" | "bottom",
+    toSide: "left" | "right" | "top" | "bottom",
+  ) => {
+    return {
+      id: `${source}-${target}`,
+      source: source,
+      sourceHandle: fromSide,
+      target: target,
+      targetHandle: toSide,
+    };
+  };
   const initialEdges: Edge[] = [
-   
+    createEdge("frontEndLabel", "jQuery", "bottom", "top"),
+    createEdge("frontEndLabel", "nextJs", "bottom", "top"),
+    createEdge("backEndAndDataLabel", "mySql", "bottom", "top"),
+    createEdge("backEndAndDataLabel", "socketIo", "bottom", "top"),
+    createEdge("cloudAndDeploymentLabel", "aws", "bottom", "top"),
+    createEdge("cloudAndDeploymentLabel", "railway", "bottom", "top"),
+    createEdge("cloudAndDeploymentLabel", "vercel", "bottom", "top"),
+    createEdge("otherToolsLabel", "git", "bottom", "top"),
+    createEdge("otherToolsLabel", "ubuntu", "bottom", "top"),
   ];
 
   initialEdges.forEach((edge) => {
@@ -239,10 +271,11 @@ export function TechStackSecondary() {
   return (
     <div>
       <h1 style={{ margin: "auto", textAlign: "center" }}>Additional Tech</h1>
-      <div style={{ marginTop: "5rem", height: "25rem", width: "100%" }}>
+      <div style={{ marginTop: "5rem", height: "35rem", width: "100%" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
+          nodeOrigin={[0.5, 0.5]}
           onNodeMouseEnter={(_event, node) => {
             if (node.type !== "label") {
               setHoveredTech(node);
@@ -263,7 +296,7 @@ export function TechStackSecondary() {
           zoomOnDoubleClick={false}
           colorMode="system"
         >
-          {hoveredTech && (
+          {hoveredTech?.data?.yearsExperience && (
             <NodeToolbar
               nodeId={hoveredTech.id}
               isVisible

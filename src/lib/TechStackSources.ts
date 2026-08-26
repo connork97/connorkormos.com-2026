@@ -71,7 +71,7 @@ export const techStackImageSources = {
       yearsExperience: 3,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
     },
-    mySQL: {
+    mySql: {
       name: "MySQL",
       type: "backEnd",
       yearsExperience: 2,

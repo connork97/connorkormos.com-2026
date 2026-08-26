@@ -20,7 +20,7 @@ import { techStackImageSources } from "../lib/TechStackSources";
 import "./TechStackFlow.css";
 
 type TechStackData = {
-  label: React.ReactNode;
+  label?: React.ReactNode;
   yearsExperience?: number;
   name?: string;
 };
@@ -33,7 +33,6 @@ const nodeExtent: CoordinateExtent = [
 ];
 
 export function TechStackFlow() {
-
   const onNodesChange = useCallback(
     (changes: NodeChange<TechStackNode>[]) =>
       setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
@@ -50,12 +49,17 @@ export function TechStackFlow() {
       <img
         src={techStackItem.src}
         alt={techStackItem.name}
-        style={
-          techStackItem.name === "Flask" || techStackItem.name === "SQLAlchemy"
-            ? { filter: "brightness(0) invert(1)" }
-            : {}
-        }
-        //   style={{width: "40px", height: "40px" }}
+        style={{
+          width: "40px",
+          height: "40px",
+          filter:
+            techStackItem.name === "Flask" ||
+            techStackItem.name === "SQLAlchemy"
+              ? "brightness(0) invert(1)"
+              : "none",
+        }}
+
+        // style={{width: "40px", height: "40px" }}
       />
       <Handle id="top" type="source" position={Position.Top} />
       <Handle id="top" type="target" position={Position.Top} />
@@ -68,36 +72,14 @@ export function TechStackFlow() {
     </div>
   );
   {
-    /* <p>{techStackItem.name}</p> */
   }
   const initialNodes: TechStackNode[] = [
-   //  {
-   //    id: "techStackLabel",
-   //    position: { x: -75, y: -200 },
-   //    style: { width: 200 },
-   //    data: {
-   //      label: (
-   //        <div>
-   //          <h3 style={{ margin: 0 }}>My Go To Tech Stack</h3>
-   //          <Handle id="top" type="source" position={Position.Top} />
-   //          <Handle id="top" type="target" position={Position.Top} />
-   //          <Handle id="bottom" type="source" position={Position.Bottom} />
-   //          <Handle id="bottom" type="target" position={Position.Bottom} />
-   //          <Handle id="left" type="source" position={Position.Left} />
-   //          <Handle id="left" type="target" position={Position.Left} />
-   //          <Handle id="right" type="source" position={Position.Right} />
-   //          <Handle id="right" type="target" position={Position.Right} />
-   //        </div>
-   //      ),
-   //    },
-   //  },
     {
       id: "javaScript",
       position: { x: -175, y: -215 },
       data: {
         label: techStackNodeLabel(techStackImageSources.javaScript),
       },
-
     },
     {
       id: "typeScript",
@@ -165,94 +147,56 @@ export function TechStackFlow() {
     {
       id: "postgres",
       position: { x: 0, y: 175 },
-      data: {
-        label: techStackNodeLabel(techStackImageSources.postgres),
-      },
+      data: {},
     },
   ];
 
   initialNodes.forEach((node) => {
-    if (!node.style) {
-      node.style = { width: 45, height: 45 };
-    }
-    node.data.yearsExperience = techStackImageSources[node.id as keyof typeof techStackImageSources]?.yearsExperience;
-    node.data.name = techStackImageSources[node.id as keyof typeof techStackImageSources]?.name;
+    node.data.label = techStackNodeLabel(
+      techStackImageSources[node.id as keyof typeof techStackImageSources],
+    );
+    // if (!node.style) {
+    //   node.style = { width: 45, height: 45 };
+    // }
+    node.data.yearsExperience =
+      techStackImageSources[
+        node.id as keyof typeof techStackImageSources
+      ]?.yearsExperience;
+    node.data.name =
+      techStackImageSources[
+        node.id as keyof typeof techStackImageSources
+      ]?.name;
     node.type = "default";
   });
+
+  const createEdge = (
+    source: string,
+    target: string,
+    fromSide: "left" | "right" | "top" | "bottom",
+    toSide: "left" | "right" | "top" | "bottom",
+    label?: string,
+  ) => {
+    return {
+      id: `${source}-${target}`,
+      source: source,
+      sourceHandle: fromSide,
+      target: target,
+      targetHandle: toSide,
+      label: label,
+    };
+  };
+
   const initialEdges: Edge[] = [
-    {
-      id: "javaScript-typeScript",
-      source: "javaScript",
-      sourceHandle: "right",
-      target: "typeScript",
-      targetHandle: "left",
-      // label: "",
-    },
-    {
-      id: "typeScript-react",
-      source: "typeScript",
-      sourceHandle: "right",
-      target: "react",
-      targetHandle: "top",
-    },
-    {
-      id: "html-css",
-      source: "css",
-      sourceHandle: "left",
-      target: "html",
-      targetHandle: "right",
-    },
-    {
-      id: "html-react",
-      source: "html",
-      sourceHandle: "left",
-      target: "react",
-      targetHandle: "top",
-    },
-    {
-      id: "reactRouter-react",
-      source: "reactRouter",
-      sourceHandle: "right",
-      target: "react",
-      targetHandle: "left",
-    },
-    {
-      id: "react-redux",
-      source: "redux",
-      sourceHandle: "left",
-      target: "react",
-      targetHandle: "right",
-    },
-    {
-      id: "react-flask",
-      source: "react",
-      sourceHandle: "bottom",
-      target: "flask",
-      targetHandle: "top",
-      // label: 'HTTP/API'
-    },
-    {
-      id: "python-flask",
-      source: "python",
-      sourceHandle: "right",
-      target: "flask",
-      targetHandle: "left",
-    },
-    {
-      id: "sqlAlchemy-flask",
-      source: "sqlAlchemy",
-      sourceHandle: "left",
-      target: "flask",
-      targetHandle: "right",
-    },
-    {
-      id: "flask-postgres",
-      source: "flask",
-      sourceHandle: "bottom",
-      target: "postgres",
-      targetHandle: "top",
-      // label: 'Server to DB'
-    },
+    createEdge("javaScript", "typeScript", "right", "left"),
+    createEdge("typeScript", "react", "right", "top"),
+    createEdge("html", "react", "left", "top"),
+    createEdge("css", "html", "left", "right"),
+    createEdge("reactRouter", "react", "right", "left"),
+    createEdge("redux", "react", "left", "right"),
+    createEdge("react", "flask", "bottom", "top"),
+    createEdge("python", "flask", "right", "left"),
+    createEdge("sqlAlchemy", "flask", "left", "right"),
+    createEdge("flask", "postgres", "bottom", "top"),
   ];
 
   initialEdges.forEach((edge) => {
@@ -277,7 +221,7 @@ export function TechStackFlow() {
           onNodeMouseLeave={() => setHoveredTech(null)}
           onNodesChange={onNodesChange}
           onEdgesChange={onEdgesChange}
-          nodeExtent={nodeExtent}
+          // nodeExtent={nodeExtent}
           fitView
           panOnDrag={false}
           panOnScroll={false}
