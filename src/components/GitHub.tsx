@@ -111,7 +111,7 @@ export default function GitHub() {
     return (
       <div
         key={weekIndex}
-        className="gitHubWeek"
+        className="gitHubContributionWeek"
         style={{
           justifyContent: `${weekIndex === 0 ? "flex-end" : "flex-start"}`,
         }}
@@ -153,7 +153,7 @@ export default function GitHub() {
           return (
             <div
               key={dayIndex}
-              className="gitHubDay"
+              className="gitHubContributionDay"
               style={{ backgroundColor: color }}
               title={`${day.date}: ${day.contributionCount} contributions`}
             />
@@ -165,27 +165,28 @@ export default function GitHub() {
 
   return (
     <div className="mainContentContainer">
-      <h2 className="titleSecondary">GitHub Activity</h2>
-      <p>Check out my recent contributions on GitHub!</p>
-      <div className="gitHubCalendar">
-        <div className="gitHubWeekDays">
-          <span className="gitHubWeekDay">Mon</span>
-          <span className="gitHubWeekDay">Wed</span>
-          <span className="gitHubWeekDay">Fri</span>
+      <div className="gitHubContentContainer">
+        <h2 className="titleSecondary center">GitHub Activity</h2>
+        <div className="gitHubCalendarWrapper">
+          <div className="gitHubWeekDaysWrapper">
+            <span>Mon</span>
+            <span>Wed</span>
+            <span>Fri</span>
+          </div>
+          {gitHubData.weeks ? gitHubWeeks : <p>Loading contributions...</p>}
         </div>
-        {gitHubData.weeks ? gitHubWeeks : <p>Loading contributions...</p>}
-      </div>
-      <div className="totalContributions">
-        Year to Date Contributions: {gitHubData.totalContributions || 0}
-      </div>
-      <div className="githubLink">
-        <a
-          href="https://github.com/connork97"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View on GitHub
-        </a>
+        <p className="textSecondary">
+          Year to Date Contributions: {gitHubData.totalContributions || 0}
+        </p>
+        <span className="textSecondary">
+          <a
+            href="https://github.com/connork97"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
+          </a>
+        </span>
       </div>
     </div>
   );

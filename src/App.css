@@ -5,18 +5,19 @@
 
 .app {
   
-  width: min(50%, 60rem);
-  height: 100vh;
+  width: clamp(50%, 70rem, 90%);
+  /* height: 100vh; */
   min-height: 100vh;
   margin: 0 auto;
   padding: 24px;
 }
 
 .mainContentContainer {
-  margin: 2rem auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  margin: 5rem auto;
+  width: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 2rem; */
 }
 
 .titleMain {
@@ -40,4 +41,11 @@
   margin: 1rem auto;
   /* height: 3rem; */
   /* margin: 0 auto; */
+}
+
+.textSecondary {
+  font-size: 1.25rem;
+  text-align: justify;
+  line-height: 1;
+  margin: 1rem auto;
 }

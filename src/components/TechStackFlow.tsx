@@ -18,6 +18,7 @@ import "@xyflow/react/dist/style.css";
 import { techStackImageSources } from "../lib/TechStackSources";
 
 import "./TechStackFlow.css";
+import "../App.css";
 
 type TechStackData = {
   label?: React.ReactNode;
@@ -209,11 +210,12 @@ export function TechStackFlow() {
   const [hoveredTech, setHoveredTech] = useState<TechStackNode | null>(null);
 
   return (
-    <div>
-      <h1 style={{ margin: "auto", textAlign: "center" }}>
+    <div className="mainContentContainer">
+      {/* <h1 style={{ margin: "auto", textAlign: "center" }}> */}
+      <h1 className="titleSecondary center">
         My Primary Tech Stack
       </h1>
-      <div style={{ marginTop: "5rem", height: "45rem", width: "100%" }}>
+      <div style={{height: "45rem", width: "100%" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

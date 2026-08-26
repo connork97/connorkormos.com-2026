@@ -276,9 +276,10 @@ export function TechStackSecondary() {
   const [hoveredTech, setHoveredTech] = useState<TechStackNode | null>(null);
 
   return (
-    <div>
-      <h1 style={{ margin: "auto", textAlign: "center" }}>Additional Tech</h1>
-      <div style={{ marginTop: "5rem", height: "35rem", width: "100%" }}>
+    <div className="mainContentContainer">
+      <h1 className="titleSecondary center">Additional Tech</h1>
+      {/* <h1 style={{ margin: "auto", textAlign: "center" }}>Additional Tech</h1> */}
+      <div style={{ height: "35rem", width: "100%" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
