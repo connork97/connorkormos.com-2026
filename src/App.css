@@ -23,13 +23,21 @@
   font-size: 3rem;
   line-height: 1;
   height: 3rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .titleSecondary {
   font-size: 2rem;
   line-height: 1;
   height: 2rem;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
+.textMain {
+  font-size: 1.25rem;
+  text-align: justify;
+  line-height: 1.5;
+  margin: 1rem auto;
+  /* height: 3rem; */
+  /* margin: 0 auto; */
+}

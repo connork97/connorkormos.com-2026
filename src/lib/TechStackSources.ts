@@ -116,7 +116,7 @@ export const techStackImageSources = {
     socketIo: {
       name: "Socket.IO",
       type: "backEnd",
-      yearsExperience: 2,
+      yearsExperience: 1,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
     },
     railway: {
@@ -130,5 +130,11 @@ export const techStackImageSources = {
       type: "deployment",
       yearsExperience: 3,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
+    },
+    vite: {
+      name: "Vite",
+      type: "deployment",
+      yearsExperience: 1,
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
     },
   };

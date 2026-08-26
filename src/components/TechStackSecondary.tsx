@@ -199,13 +199,19 @@ export function TechStackSecondary() {
     },
     {
       id: "git",
-      position: { x: 100, y: 150 },
+      position: { x: 50, y: 150 },
       data: {},
       parentId: 'otherToolsGroup',
     },
     {
       id: "ubuntu",
-      position: { x: 200, y: 150 },
+      position: { x: 150, y: 165 },
+      data: {},
+      parentId: 'otherToolsGroup',
+    },
+    {
+      id: "vite",
+      position: { x: 250, y: 150 },
       data: {},
       parentId: 'otherToolsGroup',
     },
@@ -257,6 +263,7 @@ export function TechStackSecondary() {
     createEdge("cloudAndDeploymentLabel", "vercel", "bottom", "top"),
     createEdge("otherToolsLabel", "git", "bottom", "top"),
     createEdge("otherToolsLabel", "ubuntu", "bottom", "top"),
+    createEdge("otherToolsLabel", "vite", "bottom", "top"),
   ];
 
   initialEdges.forEach((edge) => {
