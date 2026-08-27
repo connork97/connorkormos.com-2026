@@ -33,7 +33,7 @@ const nodeExtent: CoordinateExtent = [
   [250, 250],
 ];
 
-export function TechStackSecondary() {
+export default function TechStackSecondary() {
   const onNodesChange = useCallback(
     (changes: NodeChange<TechStackNode>[]) =>
       setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
@@ -279,7 +279,9 @@ export function TechStackSecondary() {
     <div className="mainContentContainer">
       <h1 className="titleSecondary center">Additional Tech</h1>
       {/* <h1 style={{ margin: "auto", textAlign: "center" }}>Additional Tech</h1> */}
-      <div style={{ height: "35rem", width: "100%" }}>
+      {/* <div style={{ height: "35rem", width: "100%" }}> */}
+      <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}>
+
         <ReactFlow
           nodes={nodes}
           edges={edges}

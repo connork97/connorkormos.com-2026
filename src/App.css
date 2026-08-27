@@ -5,7 +5,8 @@
 
 .app {
   
-  width: clamp(50%, 70rem, 90%);
+  /* width: clamp(50%, 70rem, 90%); */
+  width: 70rem;
   /* height: 100vh; */
   min-height: 100vh;
   margin: 0 auto;

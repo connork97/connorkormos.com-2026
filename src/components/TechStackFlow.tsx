@@ -33,7 +33,7 @@ const nodeExtent: CoordinateExtent = [
   [250, 250],
 ];
 
-export function TechStackFlow() {
+export default function TechStackFlow() {
   const onNodesChange = useCallback(
     (changes: NodeChange<TechStackNode>[]) =>
       setNodes((nodesSnapshot) => applyNodeChanges(changes, nodesSnapshot)),
@@ -51,8 +51,10 @@ export function TechStackFlow() {
         src={techStackItem.src}
         alt={techStackItem.name}
         style={{
-          width: "40px",
-          height: "40px",
+          height: '100%',
+          width: '100%',
+          // width: "40px",
+          // height: "40px",
           filter:
             techStackItem.name === "Flask" ||
             techStackItem.name === "SQLAlchemy"
@@ -156,9 +158,9 @@ export function TechStackFlow() {
     node.data.label = techStackNodeLabel(
       techStackImageSources[node.id as keyof typeof techStackImageSources],
     );
-    // if (!node.style) {
-    //   node.style = { width: 45, height: 45 };
-    // }
+    if (!node.style) {
+      node.style = { width: 40, height: 40, padding: 5 };
+    }
     node.data.yearsExperience =
       techStackImageSources[
         node.id as keyof typeof techStackImageSources
@@ -215,7 +217,8 @@ export function TechStackFlow() {
       <h1 className="titleSecondary center">
         My Primary Tech Stack
       </h1>
-      <div style={{height: "45rem", width: "100%" }}>
+      {/* <div style={{height: "45rem", width: "auto" }}> */}
+      <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
