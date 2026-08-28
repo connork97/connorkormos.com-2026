@@ -14,7 +14,8 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const getTechStackColor = (tech: string) => {
     const techStackSource = Object.values(techStackSources).find(
-      (techStackItem) => techStackItem.name.toLowerCase() === tech.toLowerCase(),
+      (techStackItem) =>
+        techStackItem.name.toLowerCase() === tech.toLowerCase(),
     );
     if (techStackSource) {
       return techStackColors[techStackSource.type];
@@ -23,11 +24,28 @@ export default function ProjectCard({ project }: { project: Project }) {
   };
   return (
     <div className="projectCardContainer">
-      <img
-        className="projectCardImage"
-        src="https://picsum.photos/536/354"
-        alt="Project"
-      />
+      {project.mediaType === "image" ? (
+        <img
+          className="projectCardMedia"
+          src={project.mediaSource}
+          alt="Project"
+        />
+      ) : (
+        <video
+         className="projectCardMedia"
+         //  className={`${styles.iogearProductPageVideo} rounded-4`}
+         //  height="440"
+         //  width="780"
+          controls={false}
+         //  autoPlay
+          loop
+          muted
+          preload="auto"
+        >
+          <source src={project.mediaSource} type="video/mp4" />
+          {/* Your browser does not support the video tag. */}
+        </video>
+      )}
       <h3 className="projectCardTitle">{project.title}</h3>
       <p className="projectCardDescription">{project.description}</p>
       <div className="projectCardLinks">
