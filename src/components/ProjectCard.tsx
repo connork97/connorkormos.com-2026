@@ -1,10 +1,10 @@
 import "../App.css";
 import "./Projects.css";
 
-import type { Project } from "../lib/Projects";
+import type { ProjectSource } from "../lib/ProjectSources";
 import { techStackSources } from "../lib/TechStackSources";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project }: { project: ProjectSource }) {
   const techStackColors: Record<string, string> = {
     frontEnd: "purple",
     backEnd: "green",
@@ -33,9 +33,6 @@ export default function ProjectCard({ project }: { project: Project }) {
       ) : (
         <video
          className="projectCardMedia"
-         //  className={`${styles.iogearProductPageVideo} rounded-4`}
-         //  height="440"
-         //  width="780"
           controls={false}
          //  autoPlay
           loop
@@ -59,14 +56,14 @@ export default function ProjectCard({ project }: { project: Project }) {
             View Live Demo
           </a>
         </button>
-        <button className="projectCardButton">
+        <button className="projectCardButton" style={{ opacity: project.githubUrl === "N/A" ? 0.5 : 1 }}>
           <a
             className="projectCardButtonLink"
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            View On GitHub
+            {project.githubUrl === "N/A" ? "GitHub Unavailable" : "View On GitHub"}
           </a>
         </button>
       </div>

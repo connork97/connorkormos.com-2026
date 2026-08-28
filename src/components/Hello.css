@@ -1,16 +1,19 @@
 .helloContainer {
   /* height: 100%; */
   width: 50%;
+  aspect-ratio: 16/9;
   /* margin-top: auto; */
   transition: margin-top 0.3s ease-in-out;
 }
 
 .helloContainer.expanded {
   /* margin-top: 100%; */
+  
   transition: margin-top 0.3s ease-in-out;
   margin-top: calc(5rem + (9 / 16) * 100%);
 
   width: 100%;
+  aspect-ratio: auto;
 }
 
 .helloString {

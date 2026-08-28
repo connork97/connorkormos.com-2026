@@ -1,7 +1,7 @@
 import "../App.css";
 import "./Projects.css";
 
-import { ProjectsArr } from "../lib/Projects";
+import { ProjectsSources } from "../lib/ProjectSources";
 import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
@@ -11,7 +11,7 @@ export default function Projects() {
          <h2 className="titleSecondary">Featured Projects</h2>
          <div className="projectsCardsContainer">
 
-         {ProjectsArr.map((project) => (
+         {ProjectsSources.map((project) => (
             <ProjectCard key={project.id} project={project} />
          ))}
          </div>

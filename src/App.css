@@ -31,7 +31,8 @@
 
 .flexRowContentContainer {
   flex-direction: row;
-  margin-bottom: 15rem;
+  
+  /* margin-bottom: 15rem; */
 }
 
 .flexColumnContentContainer {
@@ -62,4 +63,14 @@
   text-align: justify;
   line-height: 1;
   margin: 1rem auto;
+}
+
+.mainButtonLink {
+   background-color: #24292f;
+   color: #ffffff;
+   border: 1px solid #444444;
+   border-radius: 0.5rem;
+   padding: 0.5rem 0.75rem;
+   text-decoration: none;
+   color: inherit;
 }

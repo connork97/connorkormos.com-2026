@@ -3,7 +3,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 35rem;
+  /* width: 35rem; */
+  width: 50%;
   aspect-ratio: 16/9;
   background-color: #1e1e1e;
   border-radius: 0.5rem;
@@ -11,7 +12,7 @@
   font-family: monospace;
   font-size: 1rem;
   transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
-  margin-bottom: 10rem;
+  /* margin-bottom: 10rem; */
 }
 
 .terminalContainer.expanded {

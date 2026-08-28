@@ -1,4 +1,4 @@
-export type Project = {
+export type ProjectSource = {
    id: string;
    title: string;
    description: string;
@@ -9,7 +9,7 @@ export type Project = {
    techStack: string[];
 };
 
-export const ProjectsArr: Project[] = [
+export const ProjectsSources: ProjectSource[] = [
    {
       id: "resumeBuilder",
       title: "Resume Builder",
@@ -18,7 +18,7 @@ export const ProjectsArr: Project[] = [
          mediaType: "image",
       mediaSource: "src/assets/resumeBuilder/ResumeBuilderEditorPage.jpg",
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
-      githubUrl: "",
+      githubUrl: "https://github.com/connork97/Resume-Builder",
       techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    },
    {
@@ -29,7 +29,7 @@ export const ProjectsArr: Project[] = [
          mediaType: "image",
       mediaSource: "src/assets/peaksync/PeakSyncHomePage.png",
       liveDemoUrl: "https://peaksync.onrender.com/",
-      githubUrl: "",
+      githubUrl: "https://github.com/connork97/peaksync",
       techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    },
    {
@@ -39,8 +39,8 @@ export const ProjectsArr: Project[] = [
          "A web application that provides detailed information about IOGEAR products. Users can browse through various product categories, view product specifications, and read customer reviews.",
       mediaType: "video", 
       mediaSource: "src/assets/iogear/iogear_product_pages.mp4",
-      liveDemoUrl: "https://iogear-product-pages.example.com",
-      githubUrl: "",
+      liveDemoUrl: "https://support.iogear.com/product/ghdsw8k4",
+      githubUrl: "N/A",
       techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    },
    {
@@ -50,8 +50,19 @@ export const ProjectsArr: Project[] = [
          "A landing page for IOGEAR's CES event. The page provides information about the event, showcases IOGEAR's products, and allows users to register for the event.",
       mediaType: "video",
       mediaSource: "src/assets/iogear/iogear_ces_2024.mp4",
-      liveDemoUrl: "https://iogear-ces-landing-page.example.com",
-      githubUrl: "",
+      liveDemoUrl: "https://support.iogear.com/ces2024",
+      githubUrl: "N/A",
+      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+   },
+   {
+      id: "shadle",
+      title: "Shadle",
+      description:
+         "A web application that allows users to share and discover short videos. Users can upload their own videos, browse through trending videos, and interact with other users through comments and likes.",
+      mediaType: "image",
+      mediaSource: "src/assets/shadle/ShadleHomepage.jpg",
+      liveDemoUrl: "https://shadle.web.app",
+      githubUrl: "https://github.com/connork97/shadle",
       techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    }
 ];

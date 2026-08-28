@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "../App.css";
 import "./Hello.css";
 
-export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean}) {
+export default function Hello({
+  terminalIsExpanded,
+}: {
+  terminalIsExpanded: boolean;
+}) {
   const fullHelloString = "Hi, I'm Connor Kormos.";
   const [helloString, setHelloString] = useState("");
 
@@ -52,7 +56,8 @@ export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean
       return;
     }
 
-    const waitForSecondLine = iAmStringBase.length === 0 && iAmStringExtension.length === 0;
+    const waitForSecondLine =
+      iAmStringBase.length === 0 && iAmStringExtension.length === 0;
 
     if (waitForSecondLine) {
       timeoutRef.current = window.setTimeout(() => {
@@ -84,7 +89,10 @@ export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean
     }
 
     if (iAmStringExtension.length < fullIAmStringExtension.length) {
-      const nextValue = fullIAmStringExtension.slice(0, iAmStringExtension.length + 1);
+      const nextValue = fullIAmStringExtension.slice(
+        0,
+        iAmStringExtension.length + 1,
+      );
 
       timeoutRef.current = window.setTimeout(() => {
         setIAmStringExtension(nextValue);
@@ -97,7 +105,6 @@ export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean
         }
       };
     }
-
   }, [
     fullHelloString,
     fullIAmStringBase,
@@ -109,22 +116,46 @@ export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean
     typingDelay,
   ]);
 
-  const caret = <span className="caret">_</span>
+  const caret = <span className="caret">_</span>;
 
   return (
-    <div className={`helloContainer${terminalIsExpanded ? " expanded" : ""}`}>
-      <h1
-        className="titleMain helloString"
-        // style={{ width: `${helloString.length}ch` }}
-      >
-        {helloString}
-        {iAmStringBase.length === 0 && caret}
-      </h1>
-      <h2 className="titleSecondary iAmString">
-         {iAmStringBase}
-         {iAmStringExtension}
-         {iAmStringBase.length > 0 && caret}
-      </h2>
+    <div className={`flexColumn spaceEvenly helloContainer${terminalIsExpanded ? " expanded" : ""}`}>
+      <div>
+        <h1
+          className="titleMain helloString"
+          // style={{ width: `${helloString.length}ch` }}
+        >
+          {helloString}
+          {iAmStringBase.length === 0 && caret}
+        </h1>
+        <h2 className="titleSecondary iAmString">
+          {iAmStringBase}
+          {iAmStringExtension}
+          {iAmStringBase.length > 0 && caret}
+        </h2>
+      </div>
+      <div style={{marginTop: 'auto', width: '80%', textAlign: 'justify'}}>
+        I'm a full-stack software engineer who enjoys building modern, practical
+        web applications and solving problems through clean, thoughtful code.
+      </div>
+      <div className="flexRow spaceBetween" style={{ marginTop: 'auto', width: '80%', gap: '1rem' }}>
+        <a
+          className="mainButtonLink"
+          href="https://www.github.com/connork97"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Check Out My GitHub
+        </a>
+        <a
+          className="mainButtonLink"
+          href="https://www.connorkormos.com/resume"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download My Resume
+        </a>
+      </div>
     </div>
   );
 }

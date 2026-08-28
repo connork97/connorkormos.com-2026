@@ -82,3 +82,11 @@ p {
   display: flex;
   justify-content: space-around;
 }
+
+.fullWidth {
+  width: 100%;
+}
+
+.halfWidth {
+  width: 50%;
+}

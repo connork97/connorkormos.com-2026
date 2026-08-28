@@ -14,7 +14,7 @@ function App() {
   const [terminalIsExpanded, setTerminalIsExpanded] = useState(false);
 
   return (
-    <div className="app">
+    <div className="app" style={{display: 'flex', flexDirection: 'column', gap: '5rem'}}>
       <div
         className={`${terminalIsExpanded ? "flexColumnContentContainer" : "flexRowContentContainer"}`}
       >
