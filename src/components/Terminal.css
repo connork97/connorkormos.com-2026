@@ -1,45 +1,26 @@
 .terminalContainer {
-   position: absolute;
-   top: 0;
-   right: 0;
   /* height: 25rem; */
-  width: 50%;
-  height: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35rem;
   aspect-ratio: 16/9;
-  /* height: 50rem; */
-  /* width: 100%; */
   background-color: #1e1e1e;
   border-radius: 0.5rem;
   color: #ffffff;
   font-family: monospace;
-  font-size: 1.1rem;
-  transition: all 0.3s ease-in-out;
-   margin-bottom: 10rem;
-}
-
-.terminalGhost {
-   position: relative;
-  transition: all 0.3s ease-in-out;
-
-}
-
-.terminalGhost::before {
-   content: "";
-   display: block;
-   height: 100%;
-   width: 100%;
-  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
+  margin-bottom: 10rem;
 }
 
 .terminalContainer.expanded {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  width: 70rem;
   aspect-ratio: 16/9;
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  float: right;
+  transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
+
+  /* transition: all 0.3s ease-in-out; */
 }
 
 .terminalContainer,
@@ -95,7 +76,8 @@
 .terminalContent {
   height: 95%;
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  /* padding: 1rem; */
   box-sizing: border-box;
   /* color: #ffffff;
    font-family: monospace;

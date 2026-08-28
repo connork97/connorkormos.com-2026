@@ -6,10 +6,10 @@
 .app {
   position: relative;
   /* width: clamp(50%, 70rem, 90%); */
-  width: 80rem;
+  width: 70rem;
   min-height: 100vh;
   margin: 5rem auto;
-  padding: 24px;
+  /* padding: 24px; */
 }
 
 .mainContentContainer {
@@ -36,7 +36,7 @@
 
 .flexColumnContentContainer {
   flex-direction: column;
-  margin-bottom: calc(5rem + (9 / 16) * 100%);
+  /* margin-bottom: calc(5rem + (9 / 16) * 100%); */
 }
 
 .titleMain {

@@ -3,7 +3,7 @@ import "../App.css";
 export default function About() {
   return (
     <div className="mainContentContainer">
-      <h1 className="titleMain">Hi, I'm Connor.</h1>
+      {/* <h1 className="titleMain">Hi, I'm Connor.</h1> */}
       {/* <h1 className="titleSecondary">About Me</h1> */}
       <p className="textMain">
         I'm a 29 year old software engineer based in Southern California.
