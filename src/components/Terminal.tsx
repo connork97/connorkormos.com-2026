@@ -45,13 +45,10 @@ export default function Terminal({
     name: "Connor Kormos,",
     role: "Software Engineer,",
     yearsExperience: "3,",
-    skills: "[...skills],",
     education: "[UCLA, Flatiron School],",
     email: "connorkormos@gmail.com,",
     phone: "(714) 795-9351,",
     location: "Orange County, CA,",
-    github: "www.github.com/connorkormos,",
-    linkedin: "www.linkedin.com/in/connorkormos,",
   };
 
   const terminalOutputLines = Object.entries(connor).map(([key, value]) => (
@@ -60,6 +57,15 @@ export default function Terminal({
       {value}
     </p>
   ));
+
+  const promptInputLabel = (
+    <span className="greenText">
+      connor@kormos<span style={{ color: "white" }}>:
+      <span style={{ color: "blue" }}>~</span>
+        $&nbsp;</span>
+      {/* <span style={{ color: "blue" }}>$&nbsp;</span> */}
+    </span>
+  );
 
   return (
     <div
@@ -102,7 +108,7 @@ export default function Terminal({
       </div>
       <div className="terminalContent">
         <p className="terminalPrompt">
-          <span className="greenText">connor@kormos:&nbsp;</span>
+          {promptInputLabel}
           <span>cat ~/about.json</span>
         </p>
         <div className="terminalOutput">
@@ -111,7 +117,7 @@ export default function Terminal({
           {"}"}
         </div>
         <p className="terminalPrompt">
-          <span className="greenText">connor@kormos:&nbsp;</span>
+          {promptInputLabel}
           <span contentEditable style={{ outline: "none", flex: "1" }}>
             test
           </span>

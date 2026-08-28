@@ -30,6 +30,12 @@ export const techStackSources: Record<string, TechStackSource> = {
       yearsExperience: 4,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
     },
+    bootstrap: {
+      name: "Bootstrap",
+      type: "frontEnd",
+      yearsExperience: 3,
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
+    },
     react: {
       name: "React",
       type: "frontEnd",
@@ -41,6 +47,12 @@ export const techStackSources: Record<string, TechStackSource> = {
       type: "frontEnd",
       yearsExperience: 2,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
+    },
+    contextApi:{
+      name: "Context API",
+      type: "frontEnd",
+      yearsExperience: 3,
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     },
     reactRouter: {
       name: "React Router",
@@ -65,6 +77,12 @@ export const techStackSources: Record<string, TechStackSource> = {
       type: "backEnd",
       yearsExperience: 3,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    },
+    php: {
+      name: "PHP",
+      type: "backEnd",
+      yearsExperience: 2,
+      src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
     },
     flask: {
       name: "Flask",

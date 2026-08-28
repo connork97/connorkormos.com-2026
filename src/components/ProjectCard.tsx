@@ -32,9 +32,9 @@ export default function ProjectCard({ project }: { project: ProjectSource }) {
         />
       ) : (
         <video
-         className="projectCardMedia"
+          className="projectCardMedia"
           controls={false}
-         //  autoPlay
+          //  autoPlay
           loop
           muted
           preload="auto"
@@ -45,38 +45,45 @@ export default function ProjectCard({ project }: { project: ProjectSource }) {
       )}
       <h3 className="projectCardTitle">{project.title}</h3>
       <p className="projectCardDescription">{project.description}</p>
-      <div className="projectCardLinks">
-        <button className="projectCardButton">
-          <a
-            className="projectCardButtonLink"
-            href={project.liveDemoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="flexColumn" style={{ gap: '1rem', height: '35%', marginTop: "auto" }}>
+        <div className="projectCardLinks">
+          <button className="projectCardButton">
+            <a
+              className="projectCardButtonLink"
+              href={project.liveDemoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Live Demo
+            </a>
+          </button>
+          <button
+            className="projectCardButton"
+            style={{ opacity: project.githubUrl === "N/A" ? 0.5 : 1 }}
           >
-            View Live Demo
-          </a>
-        </button>
-        <button className="projectCardButton" style={{ opacity: project.githubUrl === "N/A" ? 0.5 : 1 }}>
-          <a
-            className="projectCardButtonLink"
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {project.githubUrl === "N/A" ? "GitHub Unavailable" : "View On GitHub"}
-          </a>
-        </button>
-      </div>
-      <div className="projectCardTechStackWrapper">
-        {project.techStack.map((tech) => (
-          <span
-            style={{ borderColor: getTechStackColor(tech) }}
-            key={tech}
-            className="projectCardTechStackItem"
-          >
-            {tech}
-          </span>
-        ))}
+            <a
+              className="projectCardButtonLink"
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {project.githubUrl === "N/A"
+                ? "GitHub Unavailable"
+                : "View On GitHub"}
+            </a>
+          </button>
+        </div>
+        <div className="projectCardTechStackWrapper">
+          {project.techStack.map((tech) => (
+            <span
+              style={{ borderColor: getTechStackColor(tech) }}
+              key={tech}
+              className="projectCardTechStackItem"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

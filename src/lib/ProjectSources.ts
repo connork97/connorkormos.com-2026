@@ -19,7 +19,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/resumeBuilder/ResumeBuilderEditorPage.jpg",
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
       githubUrl: "https://github.com/connork97/Resume-Builder",
-      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
    },
    {
       id: "peakSync",
@@ -30,7 +30,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/peaksync/PeakSyncHomePage.png",
       liveDemoUrl: "https://peaksync.onrender.com/",
       githubUrl: "https://github.com/connork97/peaksync",
-      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
    },
    {
       id: "iogearProductPages",
@@ -41,7 +41,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/iogear/iogear_product_pages.mp4",
       liveDemoUrl: "https://support.iogear.com/product/ghdsw8k4",
       githubUrl: "N/A",
-      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+      techStack: ["JQuery", "JavaScript", "HTML", "CSS", 'BootStrap', "PHP", "MySQL"],
    },
    {
       id: "iogearCesLandingPage",
@@ -52,7 +52,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/iogear/iogear_ces_2024.mp4",
       liveDemoUrl: "https://support.iogear.com/ces2024",
       githubUrl: "N/A",
-      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+      techStack: ["JQuery", "JavaScript", "HTML", "CSS", 'BootStrap', "PHP", "MySQL"],
    },
    {
       id: "shadle",
@@ -63,6 +63,6 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/shadle/ShadleHomepage.jpg",
       liveDemoUrl: "https://shadle.web.app",
       githubUrl: "https://github.com/connork97/shadle",
-      techStack: ["React", "TypeScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
    }
 ];
