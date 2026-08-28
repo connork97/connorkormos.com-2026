@@ -4,6 +4,8 @@
 }
 
 .app {
+
+
   position: relative;
   /* width: clamp(50%, 70rem, 90%); */
   width: 70rem;
@@ -22,7 +24,6 @@
   display: flex;
   justify-content: space-between;
   margin: auto;
-  /* margin-bottom: calc(5rem + 56.25%); */
   width: 100%;
   transition: all 0.3s ease-in-out;
   
@@ -30,27 +31,23 @@
 
 .flexRowContentContainer {
   flex-direction: row;
-  /* margin-bottom: calc((9 / 16) * 40%); */
   margin-bottom: 15rem;
 }
 
 .flexColumnContentContainer {
   flex-direction: column;
-  /* margin-bottom: calc(5rem + (9 / 16) * 100%); */
 }
 
 .titleMain {
   font-size: 3rem;
   line-height: 1;
   height: 3rem;
-  /* margin: 0 auto; */
 }
 
 .titleSecondary {
   font-size: 2rem;
   line-height: 1;
   height: 2rem;
-  /* margin: 0 auto; */
 }
 
 .textMain {
@@ -58,8 +55,6 @@
   text-align: justify;
   line-height: 1.5;
   margin: 1rem auto;
-  /* height: 3rem; */
-  /* margin: 0 auto; */
 }
 
 .textSecondary {

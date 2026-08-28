@@ -13,10 +13,14 @@
   /* width: fit-content; */
   margin: auto;
   padding: 2rem 1rem 1rem 1rem;
-  border: 1px solid rgba(249, 250, 251, 0.1);
+  /* border: 1px solid rgba(249, 250, 251, 0.1); */
+  border: 1px solid #444444;
+  /* I just want to make the border more opaque */
+  border-opacity: 0.1;
   border-radius: 0.5rem;
   background-color: rgba(249, 250, 251, 0.01);
-  color: #8c8c8c;
+  /* color: #8c8c8c; */
+  color: #B0B0B0;
 }
 
 .gitHubContributionWeek {

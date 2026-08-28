@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Projects from "./components/Projects";
 import GitHub from "./components/GitHub";
 import TechStack from "./components/TechStack";
 import Hello from "./components/Hello";
@@ -25,9 +25,12 @@ function App() {
         />
       </div>
       <About />
-      <TechStackFlow />
-      <TechStackSecondary />
-      <TechStack />
+      <Projects />
+      <div className="flexRowContentContainer">
+        <TechStackFlow />
+        <TechStackSecondary />
+      </div>
+      {/* <TechStack /> */}
       <GitHub />
     </div>
   );
