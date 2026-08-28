@@ -7,6 +7,7 @@
 .projectsCardsContainer {
    position: relative;
    width: 100%;
+   height: max-content;
    display: flex;
    justify-content: space-between;
    flex-wrap: nowrap;
@@ -16,7 +17,6 @@
 
 .projectCardContainer {
    position: relative;
-   height: max-content;
    width: clamp(20rem, 30%, 90%);
    display: flex;
    flex-direction: column;
