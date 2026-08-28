@@ -15,7 +15,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import { techStackImageSources } from "../lib/TechStackSources";
+import { techStackSources } from "../lib/TechStackSources";
 
 import "./TechStackFlow.css";
 import "../App.css";
@@ -81,70 +81,70 @@ export default function TechStackFlow() {
       id: "javaScript",
       position: { x: -175, y: -215 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.javaScript),
+        label: techStackNodeLabel(techStackSources.javaScript),
       },
     },
     {
       id: "typeScript",
       position: { x: -75, y: -200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.typeScript),
+        label: techStackNodeLabel(techStackSources.typeScript),
       },
     },
     {
       id: "html",
       position: { x: 75, y: -200 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.html),
+        label: techStackNodeLabel(techStackSources.html),
       },
     },
     {
       id: "css",
       position: { x: 175, y: -215 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.css),
+        label: techStackNodeLabel(techStackSources.css),
       },
     },
     {
       id: "reactRouter",
       position: { x: -125, y: -100 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.reactRouter),
+        label: techStackNodeLabel(techStackSources.reactRouter),
       },
     },
     {
       id: "react",
       position: { x: 0, y: -75 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.react),
+        label: techStackNodeLabel(techStackSources.react),
       },
     },
     {
       id: "redux",
       position: { x: 125, y: -100 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.redux),
+        label: techStackNodeLabel(techStackSources.redux),
       },
     },
     {
       id: "python",
       position: { x: -125, y: 25 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.python),
+        label: techStackNodeLabel(techStackSources.python),
       },
     },
     {
       id: "flask",
       position: { x: 0, y: 50 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.flask),
+        label: techStackNodeLabel(techStackSources.flask),
       },
     },
     {
       id: "sqlAlchemy",
       position: { x: 125, y: 25 },
       data: {
-        label: techStackNodeLabel(techStackImageSources.sqlAlchemy),
+        label: techStackNodeLabel(techStackSources.sqlAlchemy),
       },
     },
     {
@@ -156,18 +156,18 @@ export default function TechStackFlow() {
 
   initialNodes.forEach((node) => {
     node.data.label = techStackNodeLabel(
-      techStackImageSources[node.id as keyof typeof techStackImageSources],
+      techStackSources[node.id as keyof typeof techStackSources],
     );
     if (!node.style) {
       node.style = { width: 40, height: 40, padding: 5 };
     }
     node.data.yearsExperience =
-      techStackImageSources[
-        node.id as keyof typeof techStackImageSources
+      techStackSources[
+        node.id as keyof typeof techStackSources
       ]?.yearsExperience;
     node.data.name =
-      techStackImageSources[
-        node.id as keyof typeof techStackImageSources
+      techStackSources[
+        node.id as keyof typeof techStackSources
       ]?.name;
     node.type = "default";
   });

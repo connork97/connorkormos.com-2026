@@ -1,4 +1,11 @@
-export const techStackImageSources = {
+type TechStackSource = {
+  name: string;
+  type: "frontEnd" | "backEnd" | "other" | "deployment";
+  yearsExperience: number;
+  src: string;
+};
+
+export const techStackSources: Record<string, TechStackSource> = {
     javaScript: {
       name: "JavaScript",
       type: "frontEnd",
@@ -30,7 +37,7 @@ export const techStackImageSources = {
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     },
     redux: {
-      name: "Redux Toolkit",
+      name: "Redux",
       type: "frontEnd",
       yearsExperience: 2,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
@@ -49,7 +56,7 @@ export const techStackImageSources = {
     },
     jQuery: {
       name: "jQuery",
-      type: "other",
+      type: "frontEnd",
       yearsExperience: 3,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-plain.svg",
     },
@@ -133,7 +140,7 @@ export const techStackImageSources = {
     },
     vite: {
       name: "Vite",
-      type: "deployment",
+      type: "other",
       yearsExperience: 1,
       src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
     },

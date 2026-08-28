@@ -15,7 +15,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-import { techStackImageSources } from "../lib/TechStackSources";
+import { techStackSources } from "../lib/TechStackSources";
 
 import "./TechStackFlow.css";
 
@@ -223,15 +223,15 @@ export default function TechStackSecondary() {
     //  }
     if (node.type !== "group" && !node.data.label) {
       node.data.label = techStackNodeLabel(
-        techStackImageSources[node.id as keyof typeof techStackImageSources],
+        techStackSources[node.id as keyof typeof techStackSources],
       );
       node.data.yearsExperience =
-        techStackImageSources[
-          node.id as keyof typeof techStackImageSources
+        techStackSources[
+          node.id as keyof typeof techStackSources
         ]?.yearsExperience;
       node.data.name =
-        techStackImageSources[
-          node.id as keyof typeof techStackImageSources
+        techStackSources[
+          node.id as keyof typeof techStackSources
         ]?.name;
     }
     // if (!node.type) {

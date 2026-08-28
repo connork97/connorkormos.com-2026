@@ -13,6 +13,7 @@
    flex-wrap: nowrap;
    overflow-x: auto;
    gap: 1rem;
+   scrollbar-color: #444444 transparent;
 }
 
 .projectCardContainer {
