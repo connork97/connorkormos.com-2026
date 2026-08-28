@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 
+import { Connor } from "../lib/Connor.ts";
+
 import "../App.css";
 import "./Terminal.css";
 
@@ -10,6 +12,7 @@ export default function Terminal({
   terminalIsExpanded: boolean;
   setTerminalIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  console.log("Connor:", Connor);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const dragStart = useRef({ x: 0, y: 0 });
@@ -119,7 +122,7 @@ export default function Terminal({
         <p className="terminalPrompt">
           {promptInputLabel}
           <span contentEditable style={{ outline: "none", flex: "1" }}>
-            test
+            
           </span>
         </p>
       </div>

@@ -1,4 +1,4 @@
-type TechStackSource = {
+export type TechStackSource = {
   name: string;
   type: "frontEnd" | "backEnd" | "other" | "deployment";
   yearsExperience: number;
