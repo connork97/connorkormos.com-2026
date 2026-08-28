@@ -1,5 +1,5 @@
 .gitHubContentContainer {
-  width: clamp(25%, 50rem, 100%);
+  /* width: clamp(25%, 50rem, 100%); */
   /* width: 80%; */
   margin: auto;
 }
@@ -16,7 +16,6 @@
   /* border: 1px solid rgba(249, 250, 251, 0.1); */
   border: 1px solid #444444;
   /* I just want to make the border more opaque */
-  border-opacity: 0.1;
   border-radius: 0.5rem;
   background-color: rgba(249, 250, 251, 0.01);
   /* color: #8c8c8c; */

@@ -24,7 +24,7 @@ function App() {
           setTerminalIsExpanded={setTerminalIsExpanded}
         />
       </div>
-      <About />
+      {/* <About /> */}
       <Projects />
       <div className="flexRowContentContainer">
         <TechStackFlow />
