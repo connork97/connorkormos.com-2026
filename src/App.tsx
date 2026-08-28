@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import GitHub from "./components/GitHub";
 import TechStack from "./components/TechStack";
@@ -10,11 +10,16 @@ import Terminal from "./components/Terminal";
 
 function App() {
 
+  const [terminalIsExpanded, setTerminalIsExpanded] = useState(false);
+
   return (
       <div className="app">
     {/* // <div style={{ height: "100vh", width: "100vw" }}> */}
-      <Hello />
-      <Terminal />
+    <div className={`${terminalIsExpanded ? "flexColumnContentContainer" : "flexRowContentContainer"}`}>
+    {/* <div className='flexRowContentContainer'> */}
+      <Hello terminalIsExpanded={terminalIsExpanded} />
+      <Terminal terminalIsExpanded={terminalIsExpanded} setTerminalIsExpanded={setTerminalIsExpanded} />
+    </div>
       <About />
       <TechStackFlow />
       <TechStackSecondary />

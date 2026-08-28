@@ -1,6 +1,10 @@
 .terminalContainer {
-  height: 25rem;
-  /* width: 40rem; */
+   position: absolute;
+   top: 0;
+   right: 0;
+  /* height: 25rem; */
+  width: 50%;
+  height: auto;
   aspect-ratio: 16/9;
   /* height: 50rem; */
   /* width: 100%; */
@@ -8,7 +12,34 @@
   border-radius: 0.5rem;
   color: #ffffff;
   font-family: monospace;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in-out;
+   margin-bottom: 10rem;
+}
+
+.terminalGhost {
+   position: relative;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.terminalGhost::before {
+   content: "";
+   display: block;
+   height: 100%;
+   width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.terminalContainer.expanded {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  font-size: 1.5rem;
+  aspect-ratio: 16/9;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  float: right;
 }
 
 .terminalContainer,
@@ -18,7 +49,7 @@
 }
 
 .terminalTopBar {
-  height: 5%;
+  height: 10%;
   width: 100%;
   background-color: #2e2e2e;
 }
@@ -26,6 +57,7 @@
 .terminalButtons {
   height: 100%;
   width: 10%;
+  margin-left: 2%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -35,6 +67,19 @@
   height: 35%;
   aspect-ratio: 1/1;
   border-radius: 50%;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.terminalButton span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  /* vertical-align: middle; */
+  /* transform: translate(-25%, -25%); */
 }
 
 .terminalButton.red {
@@ -58,7 +103,9 @@
 }
 
 .terminalPrompt {
+  display: flex;
   margin-right: 0.5rem;
+  align-items: center;
 }
 
 .greenText {

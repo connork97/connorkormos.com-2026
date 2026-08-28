@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "../App.css";
 import "./Hello.css";
 
-export default function Hello() {
+export default function Hello({terminalIsExpanded}: {terminalIsExpanded: boolean}) {
   const fullHelloString = "Hi, I'm Connor Kormos.";
   const [helloString, setHelloString] = useState("");
 
@@ -13,7 +13,7 @@ export default function Hello() {
 
   const timeoutRef = useRef<number | null>(null);
 
-  const typingDelay = 100;
+  const typingDelay = 75;
 
   const pauses: Record<string, number> = {
     "Hi, ": 1000,
@@ -112,7 +112,7 @@ export default function Hello() {
   const caret = <span className="caret">_</span>
 
   return (
-    <div className="mainContentContainer">
+    <div className={`helloContainer${terminalIsExpanded ? " expanded" : ""}`}>
       <h1
         className="titleMain helloString"
         // style={{ width: `${helloString.length}ch` }}

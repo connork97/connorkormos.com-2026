@@ -1,20 +1,14 @@
-.helloString {
-  /* width: 19ch; */
-  
-  /* text-align: left;
-  animation:
-    typing 2s steps(22),
-    blink 0.5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid; */
-
-  /* font-family: monospace; */
-  /* font-size: 2em; */
-  /* border-right: 3px solid; */
+.helloContainer {
+  /* height: 100%; */
+  width: 50%;
 }
 
-.iAmString {
+.helloContainer.expanded {
+  width: 100%;
+}
+
+.helloString {
+  margin-top: 0;
 }
 
 .caret {
