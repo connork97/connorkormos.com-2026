@@ -71,7 +71,6 @@ export default function Terminal({
 
   // const [entries, setEntries] = useState<string[]>([]);
 
-
   const [promptInputValue, setPromptInputValue] = useState("");
 
   const valueStringReturn = (value: any) => {
@@ -93,12 +92,11 @@ export default function Terminal({
     ([key, value]) => (
       <p className="terminalOutputLine" key={key}>
         <span className="">{key}: </span>
-        {valueStringReturn(value)}
-        {/* {value}, */}
+        {valueStringReturn(value)},{/* {value}, */}
       </p>
     ),
   );
-  
+
   const [terminalTextContent, setTerminalTextContent] = useState(
     <>
       {" "}
@@ -158,22 +156,22 @@ export default function Terminal({
                 {connorData.map((item, index) => {
                   console.log("ITEM", Object.keys(item));
                   return (
-                      <div className="terminalOutputLine" key={index}>
-                        {typeof item === "object" ? (
-                          <>
-                            {"{"}
-                            {Object.entries(item).map(([key, value]) => (
-                              <p key={key}>
-                                <span className="">{key}: </span>
-                                {valueStringReturn(value)},
-                              </p>
-                            ))}
-                            {"},"}
-                          </>
-                        ) : (
-                          valueStringReturn(item)
-                        )}
-                      </div>
+                    <div className="terminalOutputLine" key={index}>
+                      {typeof item === "object" ? (
+                        <>
+                          {"{"}
+                          {Object.entries(item).map(([key, value]) => (
+                            <p key={key}>
+                              <span className="">{key}: </span>
+                              {valueStringReturn(value)},
+                            </p>
+                          ))}
+                          {"},"}
+                        </>
+                      ) : (
+                        valueStringReturn(item)
+                      )}
+                    </div>
                   );
                 })}
                 {"]"}
@@ -193,7 +191,7 @@ export default function Terminal({
               valueStringReturn(connorData)
             )
           ) : (
-            <span className="">Command not found</span>
+            <span className="">Command "{input}" not found</span>
           )}
         </div>
       </>
@@ -219,6 +217,31 @@ export default function Terminal({
     }
   };
 
+  const [caretPosition, setCaretPosition] = useState(0);
+
+  const handleTerminalSelectionChange = (
+    e: any,
+    keyPress: "left" | "right" | "character" | "backspace",
+  ) => {
+    console.log(e.target.selectionEnd);
+
+    if (keyPress === "left" && e.target.selectionEnd > 0) {
+      setCaretPosition(e.target.selectionEnd - 1);
+    } else if (
+      keyPress === "right" &&
+      e.target.selectionEnd < e.target.value.length
+    ) {
+      setCaretPosition(e.target.selectionEnd + 1);
+    } else if (keyPress === "character") {
+      setCaretPosition(e.target.selectionEnd + 1);
+    } else if (keyPress === "backspace" && e.target.selectionEnd > 0) {
+      setCaretPosition(e.target.selectionEnd - 1);
+    } else {
+      setCaretPosition(e.target.selectionEnd);
+    }
+    // setCaretPosition(e.target.selectionEnd);
+  };
+
   return (
     <div
       className={`terminalContainer${terminalIsExpanded ? " expanded" : ""}`}
@@ -241,7 +264,7 @@ export default function Terminal({
       >
         <div
           className="terminalButtons"
-          style={{fontSize: `${terminalIsExpanded ? 1 : 0.5}rem`}}
+          style={{ fontSize: `${terminalIsExpanded ? 1 : 0.5}rem` }}
           onPointerDown={(event) => event.stopPropagation()}
         >
           <div className="terminalButton red">
@@ -276,12 +299,29 @@ export default function Terminal({
                 e.preventDefault();
                 handleTerminalInputSubmit(promptInputValue);
                 setPromptInputValue("");
+              } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+                // e.preventDefault();
+                handleTerminalSelectionChange(
+                  e,
+                  e.key === "ArrowLeft" ? "left" : "right",
+                );
+              } else if (e.key.length === 1) {
+                handleTerminalSelectionChange(e, "character");
+              } else if (e.ctrlKey && e.key === "Backspace") {
+                e.preventDefault();
+                e.stopPropagation();
+              } else if (e.key === "Backspace") {
+                handleTerminalSelectionChange(e, "backspace");
               }
             }}
             onChange={(e) => setPromptInputValue(e.target.value)}
             autoComplete="off"
             spellCheck={false}
           />
+          <span
+            className={`terminalCaret${terminalIsExpanded ? " expanded" : ""}`}
+            style={{ left: `min(${caretPosition + 19}ch, 92.5%)` }}
+          ></span>
         </p>
       </div>
     </div>

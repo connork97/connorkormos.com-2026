@@ -13,6 +13,7 @@
   font-size: 1rem;
   transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
   /* margin-bottom: 10rem; */
+  z-index: 1;
 }
 
 .terminalContainer.expanded {
@@ -98,6 +99,7 @@
   color: #ffffff;
   border: none;
   outline: none;
+  caret-color: transparent;
 }
 
 .greenText {
@@ -124,4 +126,34 @@
 .terminalOutputLine {
   margin-left: 1rem;
   /* white-space: pre-wrap; */
+}
+
+.terminalCaret {
+  animation: blink 0.5s step-end infinite alternate;
+  position: absolute;
+  height: 1rem;
+  width: 0.5rem;
+  margin-top: auto;
+  background-color: #ffffff;
+  /* opacity: 0.75; */
+  /* animation: typing 2s steps(22), blink 0.5s step-end infinite alternate; */
+}
+
+.terminalCaret.expanded {
+  height: 1.1rem;
+  width: 0.55rem;
+  /* right: 0.5rem; */
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+    background-color: transparent;
+  }
 }

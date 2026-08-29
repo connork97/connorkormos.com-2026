@@ -121,9 +121,10 @@ export default function Hello({
   return (
     <div className={`flexColumn spaceEvenly helloContainer${terminalIsExpanded ? " expanded" : ""}`}>
       <div>
-        <h1
+        <h1 className="titleMain helloString">Connor Kormos</h1>
+        <h2 className="titleSecondary iAmString">Software Engineer</h2>
+        {/* <h1
           className="titleMain helloString"
-          // style={{ width: `${helloString.length}ch` }}
         >
           {helloString}
           {iAmStringBase.length === 0 && caret}
@@ -132,7 +133,7 @@ export default function Hello({
           {iAmStringBase}
           {iAmStringExtension}
           {iAmStringBase.length > 0 && caret}
-        </h2>
+        </h2> */}
       </div>
       <div style={{marginTop: 'auto', width: '80%', textAlign: 'justify'}}>
         I'm a full-stack software engineer who enjoys building modern, practical
