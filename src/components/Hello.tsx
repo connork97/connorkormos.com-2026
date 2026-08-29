@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+
+import { FaEnvelope } from "react-icons/fa";
+
 import "../App.css";
 import "./Hello.css";
+import { FaPhone } from "react-icons/fa6";
 
 export default function Hello({
   terminalIsExpanded,
@@ -119,7 +123,9 @@ export default function Hello({
   const caret = <span className="caret">_</span>;
 
   return (
-    <div className={`flexColumn spaceEvenly helloContainer${terminalIsExpanded ? " expanded" : ""}`}>
+    <div
+      className={`flexColumn spaceEvenly helloContainer${terminalIsExpanded ? " expanded" : ""}`}
+    >
       <div>
         <h1 className="titleMain helloString">Connor Kormos</h1>
         <h2 className="titleSecondary iAmString">Software Engineer</h2>
@@ -135,26 +141,64 @@ export default function Hello({
           {iAmStringBase.length > 0 && caret}
         </h2> */}
       </div>
-      <div style={{marginTop: 'auto', width: '80%', textAlign: 'justify'}}>
+      <div style={{ marginTop: "auto", width: "80%", textAlign: "justify" }}>
         I'm a full-stack software engineer who enjoys building modern, practical
         web applications and solving problems through clean, thoughtful code.
       </div>
-      <div className="flexRow spaceBetween" style={{ marginTop: 'auto', width: '80%', gap: '1rem' }}>
+      <div className="flexRow spaceBetween helloButtonsWrapper">
         <a
-          className="mainButtonLink"
+          className="helloButtonLink"
           href="https://www.github.com/connork97"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Check Out My GitHub
+          <p className="helloButtonLogoLabel">GitHub</p>
+          <i className="devicon-github-original"></i>
+          {/* <img className="helloButtonLogo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" /> */}
+        </a>
+
+        <a
+          className="helloButtonLink"
+          href="https://www.linkedin.com/in/connorkormos/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span
+            className="helloButtonLogoLabel linkedInLogoLabel"
+            style={{ marginRight: "0.1rem" }}
+          >
+            Linked
+          </span>
+          <i className="devicon-linkedin-plain"></i>
         </a>
         <a
-          className="mainButtonLink"
+          className="helloButtonLink"
           href="https://www.connorkormos.com/resume"
           target="_blank"
           rel="noopener noreferrer"
         >
           Download My Resume
+        </a>
+        <a
+          className="helloButtonLink"
+          href="mailto:connorkormos@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaEnvelope className="helloButtonReactIcon" />
+            connorkormos@gmail.com
+          {/* <span style={{ position: 'relative' }}> */}
+            {/* </span> */}
+        </a>
+        {/* call me */}
+        <a
+          className="helloButtonLink"
+          href="tel:+1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaPhone className="helloButtonReactIcon" />
+          (714) 795-9351
         </a>
       </div>
     </div>
