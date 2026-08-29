@@ -16,7 +16,7 @@
 }
 
 .terminalContainer.expanded {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   width: 70rem;
   aspect-ratio: 16/9;
   transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;

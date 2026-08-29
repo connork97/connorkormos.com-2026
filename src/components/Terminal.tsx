@@ -5,6 +5,9 @@ import { Connor } from "../lib/Connor.ts";
 import "../App.css";
 import "./Terminal.css";
 
+const normalizeKey = (value: string) =>
+  value.trim().toLowerCase().replace(/[\s_-]+/g, "");
+
 export default function Terminal({
   terminalIsExpanded,
   setTerminalIsExpanded,
@@ -91,7 +94,15 @@ export default function Terminal({
   );
   const [promptInputValue, setPromptInputValue] = useState("");
   const handleTerminalInputSubmit = (input: string) => {
-    const connorData = Connor[input as keyof typeof Connor];
+    const normalizedInput = normalizeKey(input);
+    if (normalizedInput === "clear") {
+      return setTerminalTextContent(<></>);
+    }
+    const matchingKey = (
+      Object.keys(Connor) as Array<keyof typeof Connor>
+    ).find((key) => normalizeKey(String(key)) === normalizedInput);
+    const connorData =
+      matchingKey !== undefined ? Connor[matchingKey] : undefined;
     console.log("Terminal input submitted:", input, connorData);
     setTerminalTextContent((prevContent) => (
       <>
@@ -101,41 +112,56 @@ export default function Terminal({
           <span>{input}</span>
         </p>
         <div className="terminalOutput">
-          {connorData ? (
-            // ! Arrays sometimes break it up far too much, like when typing "roles" into the terminal
+          {connorData !== undefined ? (
             Array.isArray(connorData) ? (
-                <>
-                  {"["}
-              {connorData.map((item, index) => {
-                console.log('ITEM', Object.keys(item))
-                return (
-                  <><p className="terminalOutputLine">{"{"}</p>
-                  <p className="terminalOutputLine" key={index}>
-                    {Object.entries(item).map(([key, value]) => (
-                      <p key={key}>
-                        <span className="greenText">{key}: </span>
-                        {JSON.stringify(value)},
+              <>
+                {"["}
+                {connorData.map((item, index) => {
+                  console.log("ITEM", Object.keys(item));
+                  return (
+                    <>
+                      {/* <p className="terminalOutputLine">{"{"}</p> */}
+                      <p className="terminalOutputLine" key={index}>
+                        {typeof item === "object" ? (
+                          <>
+                            {"{"}
+                            {Object.entries(item).map(([key, value]) => (
+                              <p key={key}>
+                                <span className="greenText">{key}: </span>
+                                {typeof value === "string"
+                                  ? `'${value}',`
+                                  : value + ","}
+                              </p>
+                            ))}
+                            {"},"}
+                          </>
+                        ) : (
+                          <span>
+                            {typeof item === "string"
+                              ? `'${item}',`
+                              : item + ","}
+                          </span>
+                          // <span>{JSON.stringify(item)},</span>
+                        )}
+                        {/* {JSON.stringify(item)}, */}
                       </p>
-                    ))}
-                    {/* {JSON.stringify(item)}, */}
-                  </p>
-                  <p className="terminalOutputLine">{"},"}</p>
-                </>
-              );
-              })}
-                  {"]"}
-                </>
+                      {/* <p className="terminalOutputLine">{"},"}</p> */}
+                    </>
+                  );
+                })}
+                {"]"}
+              </>
             ) : typeof connorData === "object" ? (
               <>
-              {"{"}
-              {Object.entries(connorData).map(([key, value]) => (
+                {"{"}
+                {Object.entries(connorData).map(([key, value]) => (
                   <p className="terminalOutputLine" key={key}>
                     <p className="greenText">{key}: </p>
                     {JSON.stringify(value)},
                   </p>
-              ))}
-              {"}"}
-                </>
+                ))}
+                {"}"}
+              </>
             ) : (
               <span className="">{connorData}</span>
               // <p className="terminalOutputLine">{JSON.stringify(connorData)}</p>
@@ -149,6 +175,7 @@ export default function Terminal({
   };
 
   const terminalContentRef = useRef<HTMLDivElement>(null);
+  const terminalInputRef = useRef<HTMLInputElement>(null);
 
   useLayoutEffect(() => {
     const terminal = terminalContentRef.current;
@@ -157,6 +184,13 @@ export default function Terminal({
       terminal.scrollTop = terminal.scrollHeight;
     }
   }, [terminalTextContent]);
+  const handleTerminalBackgroundClick = (
+    event: React.MouseEvent<HTMLDivElement>,
+  ) => {
+    if (event.target === event.currentTarget) {
+      terminalInputRef.current?.focus();
+    }
+  };
   return (
     <div
       className={`terminalContainer${terminalIsExpanded ? " expanded" : ""}`}
@@ -195,11 +229,16 @@ export default function Terminal({
           </div>
         </div>
       </div>
-      <div className="terminalContent" ref={terminalContentRef}>
+      <div
+        className="terminalContent"
+        ref={terminalContentRef}
+        onClick={handleTerminalBackgroundClick}
+      >
         {terminalTextContent}
         <p className="terminalPrompt">
           {promptInputLabel}
           <input
+            ref={terminalInputRef}
             className="terminalInput"
             style={{ border: "none", background: "transparent" }}
             value={promptInputValue}

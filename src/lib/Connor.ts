@@ -1,7 +1,7 @@
 import type { TechStackSource } from "./TechStackSources";
 import { techStackSources } from "./TechStackSources";
 
-export const Connor = {
+const baseConnor = {
   firstName: "Connor",
   lastName: "Kormos",
   age: 29,
@@ -37,8 +37,14 @@ export const Connor = {
   linkedIn: "https://www.linkedin.com/in/connorkormos/",
 };
 
-Connor.name = Connor.firstName + " " + Connor.lastName;
-Connor.fullName = Connor.firstName + " " + Connor.lastName;
-Connor.gender = Connor.sex;
-Connor.role = Connor.roles[0];
-Connor.job = Connor.roles[0];
+export const Connor = Object.assign(baseConnor, {
+  name: baseConnor.firstName + " " + baseConnor.lastName,
+  fullName: baseConnor.firstName + " " + baseConnor.lastName,
+  gender: baseConnor.sex,
+  role: baseConnor.roles[0],
+  job: baseConnor.roles[0],
+  jobs: baseConnor.roles,
+  experience: baseConnor.yearsExperience,
+  work: baseConnor.workHistory,
+  workExperience: baseConnor.workHistory,
+});
