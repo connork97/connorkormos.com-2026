@@ -36,3 +36,9 @@ export const Connor = {
   gitHub: "https://github.com/connork97",
   linkedIn: "https://www.linkedin.com/in/connorkormos/",
 };
+
+Connor.name = Connor.firstName + " " + Connor.lastName;
+Connor.fullName = Connor.firstName + " " + Connor.lastName;
+Connor.gender = Connor.sex;
+Connor.role = Connor.roles[0];
+Connor.job = Connor.roles[0];

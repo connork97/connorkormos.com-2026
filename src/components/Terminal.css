@@ -80,6 +80,7 @@
   padding: 0.5rem 1rem;
   /* padding: 1rem; */
   box-sizing: border-box;
+  overflow-y: scroll;
   /* color: #ffffff;
    font-family: monospace;
    font-size: 100%; */
@@ -89,6 +90,14 @@
   display: flex;
   margin-right: 0.5rem;
   align-items: center;
+}
+
+.terminalInput {
+  flex: 1;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  outline: none;
 }
 
 .greenText {
