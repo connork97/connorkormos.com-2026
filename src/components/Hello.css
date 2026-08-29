@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 55%;
+  width: 37.5%;
   /* aspect-ratio: 16/9; */
   /* margin-top: auto; */
   transition: margin-top 0.3s ease-in-out;
@@ -20,12 +20,22 @@
 }
 
 .helloString {
+  font-size: 3.5rem;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .iAmString {
+  font-size: 2.25rem;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
+
+.introText {
+  /* margin-top: auto; */
+  text-align: justify;
+}
+
 
 .caret {
   animation: blink 0.5s step-end infinite alternate;
@@ -46,15 +56,17 @@
 
 .helloButtonsWrapper {
   position: relative;
-  width: 80%;
+  /* width: 65%; */
+  width: 100%;
   height: 2.5rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  row-gap: 1rem;
   /* width: 100%; */
   /* vertical-align: center; */
   /* align-items: center; */
+  /* font-size: 1.1rem; */
 }
 
 .helloButtonLink {
@@ -62,7 +74,7 @@
   color: #ffffff;
   border: 1px solid #444444;
   border-radius: 0.5rem;
-  padding: 0.5rem 0.75rem;
+  padding: 1rem 1rem;
   text-decoration: none;
   color: inherit;
   height: 100%;
@@ -95,12 +107,12 @@ i[class^="devicon-"] {
 
 .helloButtonReactIcon {
   margin-top: 1%;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .helloButtonLogoLabel {
   position: relative;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   /* vertical-align: top; */
   margin-right: 0.5rem;

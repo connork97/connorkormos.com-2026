@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import { FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
+import { LuDownload } from "react-icons/lu";
+import { TbDownloadFilled } from "react-icons/tb";
 
 import "../App.css";
 import "./Hello.css";
-import { FaPhone } from "react-icons/fa6";
+// import { FaPhone } from "react-icons/fa6";
 
 export default function Hello({
   terminalIsExpanded,
@@ -141,11 +143,32 @@ export default function Hello({
           {iAmStringBase.length > 0 && caret}
         </h2> */}
       </div>
-      <div style={{ marginTop: "auto", width: "80%", textAlign: "justify" }}>
+      <div className="introText">
         I'm a full-stack software engineer who enjoys building modern, practical
         web applications and solving problems through clean, thoughtful code.
       </div>
       <div className="flexRow spaceBetween helloButtonsWrapper">
+        <a
+          className="helloButtonLink"
+          href="mailto:connorkormos@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+            connorkormos@gmail.com
+          <FaEnvelope className="helloButtonReactIcon" />
+          {/* <span style={{ position: 'relative' }}> */}
+            {/* </span> */}
+        </a>
+        {/* call me */}
+        <a
+          className="helloButtonLink"
+          href="tel:+1234567890"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          (714) 795-9351
+          <FaPhone className="helloButtonReactIcon" />
+        </a>
         <a
           className="helloButtonLink"
           href="https://www.github.com/connork97"
@@ -177,28 +200,9 @@ export default function Hello({
           target="_blank"
           rel="noopener noreferrer"
         >
-          Download My Resume
-        </a>
-        <a
-          className="helloButtonLink"
-          href="mailto:connorkormos@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaEnvelope className="helloButtonReactIcon" />
-            connorkormos@gmail.com
-          {/* <span style={{ position: 'relative' }}> */}
-            {/* </span> */}
-        </a>
-        {/* call me */}
-        <a
-          className="helloButtonLink"
-          href="tel:+1234567890"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaPhone className="helloButtonReactIcon" />
-          (714) 795-9351
+          My Resume
+          <LuDownload style={{scale: 1.2, marginBottom: '0.1rem'}} className="helloButtonReactIcon" />
+          {/* <TbDownloadFilled className="helloButtonReactIcon" /> */}
         </a>
       </div>
     </div>
