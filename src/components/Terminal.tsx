@@ -101,28 +101,48 @@ export default function Terminal({
           <span>{input}</span>
         </p>
         <div className="terminalOutput">
-          {"{"}
           {connorData ? (
+            // ! Arrays sometimes break it up far too much, like when typing "roles" into the terminal
             Array.isArray(connorData) ? (
-              connorData.map((item, index) => (
-                <p className="terminalOutputLine" key={index}>
-                  {JSON.stringify(item)},
-                </p>
-              ))
+                <>
+                  {"["}
+              {connorData.map((item, index) => {
+                console.log('ITEM', Object.keys(item))
+                return (
+                  <><p className="terminalOutputLine">{"{"}</p>
+                  <p className="terminalOutputLine" key={index}>
+                    {Object.entries(item).map(([key, value]) => (
+                      <p key={key}>
+                        <span className="greenText">{key}: </span>
+                        {JSON.stringify(value)},
+                      </p>
+                    ))}
+                    {/* {JSON.stringify(item)}, */}
+                  </p>
+                  <p className="terminalOutputLine">{"},"}</p>
+                </>
+              );
+              })}
+                  {"]"}
+                </>
             ) : typeof connorData === "object" ? (
-              Object.entries(connorData).map(([key, value]) => (
-                <p className="terminalOutputLine" key={key}>
-                  <span className="greenText">{key}: </span>
-                  {JSON.stringify(value)},
-                </p>
-              ))
+              <>
+              {"{"}
+              {Object.entries(connorData).map(([key, value]) => (
+                  <p className="terminalOutputLine" key={key}>
+                    <p className="greenText">{key}: </p>
+                    {JSON.stringify(value)},
+                  </p>
+              ))}
+              {"}"}
+                </>
             ) : (
-              <p className="terminalOutputLine">{JSON.stringify(connorData)}</p>
+              <span className="">{connorData}</span>
+              // <p className="terminalOutputLine">{JSON.stringify(connorData)}</p>
             )
           ) : (
-            <p className="terminalOutputLine">Command not found</p>
+            <span className="">Command not found</span>
           )}
-          {"}"}
         </div>
       </>
     ));
@@ -145,7 +165,6 @@ export default function Terminal({
         transition: isDragging ? "none" : undefined,
       }}
     >
-      {/* <div className="terminalGhost"></div> */}
       <div
         className="terminalTopBar"
         onPointerDown={handlePointerDown}
@@ -177,16 +196,7 @@ export default function Terminal({
         </div>
       </div>
       <div className="terminalContent" ref={terminalContentRef}>
-        {/* <p className="terminalPrompt">
-          {promptInputLabel}
-          <span>cat ~/about.json</span>
-        </p> */}
         {terminalTextContent}
-        {/* <div className="terminalOutput">
-          {"{"}
-          {terminalOutputLines}
-          {"}"}
-        </div> */}
         <p className="terminalPrompt">
           {promptInputLabel}
           <input
