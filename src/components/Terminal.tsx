@@ -6,7 +6,10 @@ import "../App.css";
 import "./Terminal.css";
 
 const normalizeKey = (value: string) =>
-  value.trim().toLowerCase().replace(/[\s_-]+/g, "");
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_-]+/g, "");
 
 export default function Terminal({
   terminalIsExpanded,
@@ -56,15 +59,6 @@ export default function Terminal({
     location: Connor.location,
   };
 
-  const terminalOutputLines = Object.entries(initialConnorData).map(
-    ([key, value]) => (
-      <p className="terminalOutputLine" key={key}>
-        <span className="greenText">{key}: </span>
-        {value},
-      </p>
-    ),
-  );
-
   const promptInputLabel = (
     <span className="greenText">
       connor@kormos
@@ -72,31 +66,76 @@ export default function Terminal({
         :<span style={{ color: "blue" }}>~</span>
         $&nbsp;
       </span>
-      {/* <span style={{ color: "blue" }}>$&nbsp;</span> */}
     </span>
   );
 
   // const [entries, setEntries] = useState<string[]>([]);
 
+
+  const [promptInputValue, setPromptInputValue] = useState("");
+
+  const valueStringReturn = (value: any) => {
+    let className = "";
+    if (typeof value === "string") className = "greenText";
+    if (typeof value === "number") className = "goldText";
+
+    return (
+      <span className={className}>
+        {typeof value === "string"
+          ? `'${value}'`
+          : typeof value === "number"
+            ? `${value}`
+            : JSON.stringify(value)}
+      </span>
+    );
+  };
+  const initialConnorDataLines = Object.entries(initialConnorData).map(
+    ([key, value]) => (
+      <p className="terminalOutputLine" key={key}>
+        <span className="">{key}: </span>
+        {valueStringReturn(value)}
+        {/* {value}, */}
+      </p>
+    ),
+  );
+  
   const [terminalTextContent, setTerminalTextContent] = useState(
     <>
       {" "}
       <p className="terminalPrompt">
         {promptInputLabel}
-        <span>cat ~/about.json</span>
+        <span>connor</span>
+        {/* <span>cat ~/about.json</span> */}
       </p>
       <div className="terminalOutput">
         {"{"}
-        {terminalOutputLines}
+        {initialConnorDataLines}
         {"}"}
       </div>
     </>,
   );
-  const [promptInputValue, setPromptInputValue] = useState("");
+
   const handleTerminalInputSubmit = (input: string) => {
     const normalizedInput = normalizeKey(input);
     if (normalizedInput === "clear") {
       return setTerminalTextContent(<></>);
+    }
+    if (normalizedInput === "connor" || normalizedInput === "about") {
+      setTerminalTextContent((prevContent) => (
+        <>
+          {prevContent}
+          <p className="terminalPrompt">
+            {promptInputLabel}
+            <span>{input}</span>
+          </p>
+          <div className="terminalOutputLine">
+            {"{"}
+            {initialConnorDataLines}
+            {"}"}
+          </div>
+        </>
+      ));
+      return;
     }
     const matchingKey = (
       Object.keys(Connor) as Array<keyof typeof Connor>
@@ -119,34 +158,22 @@ export default function Terminal({
                 {connorData.map((item, index) => {
                   console.log("ITEM", Object.keys(item));
                   return (
-                    <>
-                      {/* <p className="terminalOutputLine">{"{"}</p> */}
-                      <p className="terminalOutputLine" key={index}>
+                      <div className="terminalOutputLine" key={index}>
                         {typeof item === "object" ? (
                           <>
                             {"{"}
                             {Object.entries(item).map(([key, value]) => (
                               <p key={key}>
-                                <span className="greenText">{key}: </span>
-                                {typeof value === "string"
-                                  ? `'${value}',`
-                                  : value + ","}
+                                <span className="">{key}: </span>
+                                {valueStringReturn(value)},
                               </p>
                             ))}
                             {"},"}
                           </>
                         ) : (
-                          <span>
-                            {typeof item === "string"
-                              ? `'${item}',`
-                              : item + ","}
-                          </span>
-                          // <span>{JSON.stringify(item)},</span>
+                          valueStringReturn(item)
                         )}
-                        {/* {JSON.stringify(item)}, */}
-                      </p>
-                      {/* <p className="terminalOutputLine">{"},"}</p> */}
-                    </>
+                      </div>
                   );
                 })}
                 {"]"}
@@ -157,14 +184,13 @@ export default function Terminal({
                 {Object.entries(connorData).map(([key, value]) => (
                   <p className="terminalOutputLine" key={key}>
                     <p className="greenText">{key}: </p>
-                    {JSON.stringify(value)},
+                    {valueStringReturn(value)},
                   </p>
                 ))}
                 {"}"}
               </>
             ) : (
-              <span className="">{connorData}</span>
-              // <p className="terminalOutputLine">{JSON.stringify(connorData)}</p>
+              valueStringReturn(connorData)
             )
           ) : (
             <span className="">Command not found</span>
@@ -184,6 +210,7 @@ export default function Terminal({
       terminal.scrollTop = terminal.scrollHeight;
     }
   }, [terminalTextContent]);
+
   const handleTerminalBackgroundClick = (
     event: React.MouseEvent<HTMLDivElement>,
   ) => {
@@ -191,6 +218,7 @@ export default function Terminal({
       terminalInputRef.current?.focus();
     }
   };
+
   return (
     <div
       className={`terminalContainer${terminalIsExpanded ? " expanded" : ""}`}
@@ -213,19 +241,20 @@ export default function Terminal({
       >
         <div
           className="terminalButtons"
+          style={{fontSize: `${terminalIsExpanded ? 1 : 0.5}rem`}}
           onPointerDown={(event) => event.stopPropagation()}
         >
           <div className="terminalButton red">
-            <span>X</span>
+            <span className="terminalButtonText whiteText">x</span>
           </div>
           <div className="terminalButton yellow">
-            <span>-</span>
+            <span className="terminalButtonText whiteText">-</span>
           </div>
           <div
             className="terminalButton green"
             onClick={() => setTerminalIsExpanded((isExpanded) => !isExpanded)}
           >
-            <span>+</span>
+            <span className="terminalButtonText whiteText">+</span>
           </div>
         </div>
       </div>
@@ -250,6 +279,8 @@ export default function Terminal({
               }
             }}
             onChange={(e) => setPromptInputValue(e.target.value)}
+            autoComplete="off"
+            spellCheck={false}
           />
         </p>
       </div>

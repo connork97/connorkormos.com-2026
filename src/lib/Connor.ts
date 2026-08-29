@@ -18,9 +18,9 @@ const baseConnor = {
   ],
   yearsExperience: 3,
   education: [
-    { name: "UCLA", degree: "B.A.", fieldOfStudy: "History" },
+    { institution: "UCLA", degree: "B.A.", fieldOfStudy: "History" },
     {
-      name: "Flatiron School",
+      institution: "Flatiron School",
       degree: "Certificate",
       fieldOfStudy: "Software Engineering",
     },
@@ -47,4 +47,7 @@ export const Connor = Object.assign(baseConnor, {
   experience: baseConnor.yearsExperience,
   work: baseConnor.workHistory,
   workExperience: baseConnor.workHistory,
+  school: baseConnor.education,
+  schools: baseConnor.education,
+  schooling: baseConnor.education,
 });
