@@ -41,7 +41,8 @@
    width: clamp(20rem, 30%, 90%);
    display: flex;
    flex-direction: column;
-   border: 1px solid #444444;
+   /* border: 1px solid #444444; */
+   border: 1px solid var(--background-gradient-color);
    border-radius: 0.5rem;
    padding: 1rem;
    gap: 1rem;
@@ -81,7 +82,7 @@ video {
    /* background-color: #24292f; */
    background-color: var(--background-gradient-color);
    color: #ffffff;
-   border: 1px solid #444444;
+   border: 1px solid var(--border-gradient-color);
    border-radius: 0.5rem;
    padding: 0.5rem 0.75rem;
 }

@@ -72,6 +72,10 @@
 
 .helloButton {
   background-color: var(--background-gradient-color);
+  border: 1px solid var(--border-gradient-color);
+  border-radius: 0.5rem;
+  padding: 1rem 1rem;
+  
   /* background-color: rgb(26, 22, 41); */
   
 }
@@ -79,9 +83,6 @@
 .helloButtonLink {
   /* background-color: #24292f; */
   color: #ffffff;
-  border: 1px solid #444444;
-  border-radius: 0.5rem;
-  padding: 1rem 1rem;
   text-decoration: none;
   color: inherit;
   height: 2.5rem;
