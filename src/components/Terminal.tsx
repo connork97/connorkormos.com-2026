@@ -62,8 +62,8 @@ export default function Terminal({
   const promptInputLabel = (
     <span className="greenText">
       connor@kormos
-      <span style={{ color: "white" }}>
-        :<span style={{ color: "blue" }}>~</span>
+      <span className="whiteText">
+        :<span className="blueText">~</span>
         $&nbsp;
       </span>
     </span>
@@ -75,7 +75,7 @@ export default function Terminal({
 
   const valueStringReturn = (value: any) => {
     let className = "";
-    if (typeof value === "string") className = "greenText";
+    if (typeof value === "string") className = "purpleText";
     if (typeof value === "number") className = "goldText";
 
     return (

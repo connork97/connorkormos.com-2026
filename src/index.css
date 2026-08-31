@@ -14,6 +14,10 @@
   /* background-color: #121212; */
   --background-color: #121212;
   --background-gradient-color: rgb(32, 28, 51);
+  --test-gray-color: rgb(125, 132, 145);
+  --test-beige-color: rgb(238, 224, 203);
+  --test-pink-color: rgb(255, 135, 171);
+  --test-magenta-color: rgb(255, 135, 171);
 }
 
 * {

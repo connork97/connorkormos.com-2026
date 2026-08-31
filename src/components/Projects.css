@@ -23,10 +23,12 @@
    height: inherit;
    display: flex;
    justify-content: space-between;
-   flex-wrap: nowrap;
-   overflow-x: auto;
+   /* justify-content: space-evenly; */
+   flex-wrap: wrap;
+   /* overflow-x: auto; */
+   overflow-x: hidden;
    overflow-y: hidden;
-   gap: 1rem;
+   gap: 3rem;
    scrollbar-color: #444444 transparent;
    padding-bottom: 1rem;
    /* background: radial-gradient(ellipse 75% 50% at 50% 50%, var(--background-gradient-color), var(--background-color) 90%, transparent 90.1%); */
@@ -45,7 +47,9 @@
    gap: 1rem;
    flex-shrink: 0;
    /* background: radial-gradient(circle at 50% 75%, var(--background-gradient-color), var(--background-color) 50%, transparent 50.1%); */
-   background: linear-gradient(var(--background-color) 50%, var(--background-gradient-color))
+   background: linear-gradient(var(--background-color), var(--background-gradient-color) 200%)
+   /* background: linear-gradient(var(--background-gradient-color), var(--background-color) 50%) */
+   /* background: linear-gradient(var(--background-color), var(--background-gradient-color) 75%, var(--background-color) 90%) */
 }
 
 .projectCardContainer * {
@@ -74,7 +78,8 @@ video {
 }
 
 .projectCardButton {
-   background-color: #24292f;
+   /* background-color: #24292f; */
+   background-color: var(--background-gradient-color);
    color: #ffffff;
    border: 1px solid #444444;
    border-radius: 0.5rem;

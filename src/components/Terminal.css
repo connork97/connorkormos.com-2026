@@ -103,20 +103,26 @@
 }
 
 .greenText {
-  color: #00ff00;
+  color: #00b100;
+  /* color: #5B20A7; */
+
+}
+
+.purpleText {
+  /* color: #5B20A7; */
+    color: var(--background-gradient-color);
+  filter: brightness(5);
 }
 
 .goldText {
   color: #ffd700;
 }
 
-.whiteText {
-  color: #ffffff;
-}
-
-.terminalOutput {
+.terminalOutput, .terminalOutputLine, .terminalPrompt, .whiteText {
   /* margin-left: 1rem; */
   /* white-space: pre-wrap; */
+  color: rgb(221, 221, 221);
+  /* color: var(--test-beige-color); */
 }
 
 .terminalOutputLine p {

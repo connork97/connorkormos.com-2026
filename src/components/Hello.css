@@ -70,8 +70,14 @@
   /* font-size: 1.1rem; */
 }
 
+.helloButton {
+  background-color: var(--background-gradient-color);
+  /* background-color: rgb(26, 22, 41); */
+  
+}
+
 .helloButtonLink {
-  background-color: #24292f;
+  /* background-color: #24292f; */
   color: #ffffff;
   border: 1px solid #444444;
   border-radius: 0.5rem;

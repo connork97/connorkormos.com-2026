@@ -64,5 +64,16 @@ export const ProjectsSources: ProjectSource[] = [
       liveDemoUrl: "https://shadle.web.app",
       githubUrl: "https://github.com/connork97/shadle",
       techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+   },
+   {
+      id: "portfolio",
+      title: "Portfolio Website",
+      description:
+         "A personal portfolio website that showcases my projects, skills, and experience. The website provides information about me, my work, and allows users to contact me.",
+      mediaType: "image",
+      mediaSource: "src/assets/portfolio/PortfolioHomepage.jpg",
+      liveDemoUrl: "https://www.connorkormos.com",
+      githubUrl: "https://github.com/connork97/connorkormos.com-2026",
+      techStack: ["Next.js", "React", "TypeScript", "HTML", "CSS", "Context API", "React Router"],
    }
 ];

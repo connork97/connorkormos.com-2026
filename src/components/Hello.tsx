@@ -149,7 +149,7 @@ export default function Hello({
       </div>
       <div className="flexRow spaceBetween helloButtonsWrapper">
         <a
-          className="helloButtonLink"
+          className="helloButton helloButtonLink"
           href="mailto:connorkormos@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -161,7 +161,7 @@ export default function Hello({
         </a>
         {/* call me */}
         <a
-          className="helloButtonLink"
+          className="helloButton helloButtonLink"
           href="tel:+1234567890"
           target="_blank"
           rel="noopener noreferrer"
@@ -170,7 +170,7 @@ export default function Hello({
           <FaPhone className="helloButtonReactIcon" />
         </a>
         <a
-          className="helloButtonLink"
+          className="helloButton helloButtonLink"
           href="https://www.github.com/connork97"
           target="_blank"
           rel="noopener noreferrer"
@@ -181,7 +181,7 @@ export default function Hello({
         </a>
 
         <a
-          className="helloButtonLink"
+          className="helloButton helloButtonLink"
           href="https://www.linkedin.com/in/connorkormos/"
           target="_blank"
           rel="noopener noreferrer"
@@ -195,7 +195,7 @@ export default function Hello({
           <i className="devicon-linkedin-plain"></i>
         </a>
         <a
-          className="helloButtonLink"
+          className="helloButton helloButtonLink"
           href="https://www.connorkormos.com/resume"
           target="_blank"
           rel="noopener noreferrer"
