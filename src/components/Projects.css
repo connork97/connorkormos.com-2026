@@ -2,7 +2,20 @@
    position: relative;
    height: max-content;
    width: 100%;
+   /* background: radial-gradient(ellipse 75% 50% at 50% 50%, var(--background-gradient-color), var(--background-color) 90%, transparent 90.1%); */
 }
+
+/* .projectsContainer::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -50%;
+   width: 100vw;
+   height: 100vh;
+   border-radius: 0.5rem;
+   z-index: -1;
+   background: radial-gradient(ellipse 75% 50% at 50% 25%, var(--background-gradient-color), var(--background-color) 50%, transparent 50.1%);
+} */
 
 .projectsCardsContainer {
    position: relative;
@@ -16,9 +29,12 @@
    gap: 1rem;
    scrollbar-color: #444444 transparent;
    padding-bottom: 1rem;
+   /* background: radial-gradient(ellipse 75% 50% at 50% 50%, var(--background-gradient-color), var(--background-color) 90%, transparent 90.1%); */
+
 }
 
 .projectCardContainer {
+
    position: relative;
    width: clamp(20rem, 30%, 90%);
    display: flex;
@@ -28,6 +44,8 @@
    padding: 1rem;
    gap: 1rem;
    flex-shrink: 0;
+   /* background: radial-gradient(circle at 50% 75%, var(--background-gradient-color), var(--background-color) 50%, transparent 50.1%); */
+   background: linear-gradient(var(--background-color) 50%, var(--background-gradient-color))
 }
 
 .projectCardContainer * {

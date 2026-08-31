@@ -1,7 +1,6 @@
 :root {
   font-family:
    /* source-sans-pro, sans-serif, */
-
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
@@ -11,8 +10,10 @@
   /* background: #16171d; */
   /* line-height: 1.5; */
   font-weight: 400;
-  background-color: #121212;
   color: #e0e0e0;
+  /* background-color: #121212; */
+  --background-color: #121212;
+  --background-gradient-color: rgb(32, 28, 51);
 }
 
 * {
@@ -26,11 +27,66 @@ body,
   min-height: 100%;
   margin: 0;
   font-size: 16px;
+  /** clipped overflow added for section specific background overflows caused by the ::before elements **/
+  overflow-x: clip;
+
+}
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+
+  background-color: var(--background-color);
+  
+  /* background-image: url("/src/assets/images/WebPortfolioBackGroundImage.png"); */
+  /* background-position: top left; */
+  /* background-repeat: repeat; */
+  /* background-size: 10000px auto; */
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* background-color: rgba(18, 18, 18, 0.9); */
+  /* background: linear-gradient(var(--background-gradient-color) 0%, var(--background-color) 15%, var(--background-gradient-color) 85%, var(--background-color) 100%); */
+  background: radial-gradient(circle at 32.5% 0%, var(--background-gradient-color), var(--background-color) 20%, transparent 20.1%);
+  /* , radial-gradient(circle at 50% 50%, var(--background-gradient-color), var(--background-color) 50%), var(--background-color); */
+  /* background-repeat: repeat; */
+  /* background: linear-gradient(rgb(32, 28, 51), rgb(var(--background-color))); */
+  /* background:
+    radial-gradient(circle at 32.5% 0%, rgb(32, 28, 51), rgba(18, 18, 18, 0) 25%),
+    radial-gradient(circle at 50% 50%, rgb(32, 28, 51), rgb(18, 18, 18) 50%),
+    #121212; */
+      /* background-image:
+    radial-gradient(
+      circle 35rem at 37% 45%,
+      rgb(32, 28, 51) 0%,
+      rgb(18, 18, 18) 80%,
+      rgb(18, 18, 18) 100%
+    ),
+    radial-gradient(
+      10rem at 50% 0%,
+      rgb(42, 35, 65) 0%,
+      rgb(27, 23, 42) 45%,
+      rgb(18, 18, 18) 100%
+    );
+
+  background-size:
+    100vw 100vh,
+    auto auto;
+
+  background-position:
+    left -8rem top -10rem,
+    right -4rem top 50rem; */
+
+  /* background-size: auto; */
+  /* background: radial-gradient(at 32.5% 15%, rgb(32, 28, 51), rgb(18, 18, 18) 15% 5%, rgb(18, 18, 18) 100%); */
+
+  /* background-attachment:scroll; */
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* img,

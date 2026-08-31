@@ -6,7 +6,7 @@ import { techStackSources } from "../lib/TechStackSources";
 
 export default function ProjectCard({ project }: { project: ProjectSource }) {
   const techStackColors: Record<string, string> = {
-    frontEnd: "purple",
+    frontEnd: "rgb(76, 66, 126)",
     backEnd: "green",
     other: "blue",
     deployment: "gray",
