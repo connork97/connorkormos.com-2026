@@ -80,6 +80,7 @@
 }
 
 .terminalContent {
+  position: relative;
   height: 95%;
   width: 100%;
   padding: 0.5rem 1rem;
@@ -102,23 +103,9 @@
   caret-color: transparent;
 }
 
-.greenText {
-  color: #00b100;
-  /* color: #5B20A7; */
 
-}
 
-.purpleText {
-  /* color: #5B20A7; */
-    color: var(--background-gradient-color);
-  filter: brightness(5);
-}
-
-.goldText {
-  color: #ffd700;
-}
-
-.terminalOutput, .terminalOutputLine, .terminalPrompt, .whiteText {
+.terminalOutput, .terminalOutputLine, .terminalPrompt {
   /* margin-left: 1rem; */
   /* white-space: pre-wrap; */
   color: rgb(221, 221, 221);
@@ -139,6 +126,7 @@
   position: absolute;
   height: 1rem;
   width: 0.5rem;
+  /* bottom: 0.5rem; */
   margin-top: auto;
   background-color: #ffffff;
   /* opacity: 0.75; */

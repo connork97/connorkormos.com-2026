@@ -152,3 +152,24 @@ p {
 .halfWidth {
   width: 50%;
 }
+
+
+.greenText {
+  color: #00b100;
+  /* color: #5B20A7; */
+
+}
+
+.purpleText {
+  /* color: #5B20A7; */
+    color: var(--background-gradient-color);
+  filter: brightness(5);
+}
+
+.goldText {
+  color: #ffd700;
+}
+
+.whiteText {
+  color: rgb(221, 221, 221);
+}

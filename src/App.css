@@ -4,10 +4,7 @@
 }
 
 .app {
-
-
   position: relative;
-  
   width: clamp(50%, 70rem, 90%);
   /* width: 70rem; */
   min-height: 100vh;
@@ -15,8 +12,6 @@
   padding: 5rem 0;
   /* padding: 24px; */
 }
-
-
 
 .mainContentContainer {
   margin: 5rem auto;

@@ -221,7 +221,7 @@ export default function Terminal({
 
   const handleTerminalSelectionChange = (
     e: any,
-    keyPress: "left" | "right" | "character" | "backspace",
+    keyPress: "left" | "right" | "character" | "backspace" | "enter",
   ) => {
     console.log(e.target.selectionEnd);
 
@@ -236,7 +236,10 @@ export default function Terminal({
       setCaretPosition(e.target.selectionEnd + 1);
     } else if (keyPress === "backspace" && e.target.selectionEnd > 0) {
       setCaretPosition(e.target.selectionEnd - 1);
-    } else {
+    } else if (keyPress === "enter") {
+      setCaretPosition(0);
+    }
+    else {
       setCaretPosition(e.target.selectionEnd);
     }
     // setCaretPosition(e.target.selectionEnd);
@@ -299,6 +302,7 @@ export default function Terminal({
                 e.preventDefault();
                 handleTerminalInputSubmit(promptInputValue);
                 setPromptInputValue("");
+                handleTerminalSelectionChange(e, "enter");
               } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
                 // e.preventDefault();
                 handleTerminalSelectionChange(
@@ -312,6 +316,8 @@ export default function Terminal({
                 e.stopPropagation();
               } else if (e.key === "Backspace") {
                 handleTerminalSelectionChange(e, "backspace");
+              } else if (e.key === 'Tab') {
+                e.preventDefault();
               }
             }}
             onChange={(e) => setPromptInputValue(e.target.value)}
