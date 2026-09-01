@@ -29,10 +29,10 @@ function App() {
       </div>
       {/* <About /> */}
       <Projects />
-      <div className="flexRowContentContainer">
+      {/* <div className="flexRowContentContainer"> */}
         <TechStackFlow />
         <TechStackSecondary />
-      </div>
+      {/* </div> */}
       {/* <TechStack /> */}
       <GitHub />
     </div>

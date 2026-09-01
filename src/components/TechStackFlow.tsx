@@ -212,13 +212,14 @@ export default function TechStackFlow() {
   const [hoveredTech, setHoveredTech] = useState<TechStackNode | null>(null);
 
   return (
-    <div className="mainContentContainer">
+    <div className="mainContentContainer techStackContainer">
       {/* <h1 style={{ margin: "auto", textAlign: "center" }}> */}
-      <h1 className="titleSecondary center">
+      <h1 className="titleSecondary">
         My Primary Tech Stack
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
-      <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}>
+      {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
+      <div style={{width: '100%', height: '50rem'}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -237,6 +238,8 @@ export default function TechStackFlow() {
           zoomOnPinch={false}
           zoomOnDoubleClick={false}
           colorMode="system"
+          className="reactFlowElement"
+          // style={{background: "transparent"}}
         >
           {hoveredTech && (
             <NodeToolbar
@@ -267,7 +270,7 @@ export default function TechStackFlow() {
               Reset Flow
             </button>
           </div>
-          <Background />
+          {/* <Background style={{background: 'transparent'}} /> */}
           {/* <Controls /> */}
         </ReactFlow>
       </div>
