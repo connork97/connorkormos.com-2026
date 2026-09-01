@@ -1,3 +1,4 @@
+import { HiOutlineExternalLink } from "react-icons/hi";
 import "../App.css";
 import "./Projects.css";
 
@@ -57,7 +58,7 @@ export default function ProjectCard({ project }: { project: ProjectSource }) {
               target="_blank"
               rel="noopener noreferrer"
             >
-              View Live Demo
+              Live Site <HiOutlineExternalLink />
             </a>
           </button>
           <button
@@ -71,8 +72,12 @@ export default function ProjectCard({ project }: { project: ProjectSource }) {
               rel="noopener noreferrer"
             >
               {project.githubUrl === "N/A"
-                ? "GitHub Unavailable"
-                : "View On GitHub"}
+                ? "Private Repository"
+                : (
+                    <>
+                      GitHub <HiOutlineExternalLink />
+                    </>
+                  )}
             </a>
           </button>
         </div>

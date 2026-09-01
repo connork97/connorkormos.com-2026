@@ -70,6 +70,7 @@ video {
 .projectCardLinks {
    display: flex;
    justify-content: space-between;
+   gap: 1rem;
    /* text-decoration: none; */
    /* padding: 0.5rem 0; */
 }
@@ -83,6 +84,9 @@ video {
 }
 
 .projectCardButtonLink {
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
    text-decoration: none;
    color: inherit;
 }
