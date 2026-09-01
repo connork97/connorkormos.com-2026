@@ -38,8 +38,17 @@
   --color-main-complementary-green: #474a32;
 
   --color-secondary: #4B4858;
-
+  
   --background-color: var(--color-main-darkest);
+
+
+  --tech-frontend: #2e496c;
+  /* --tech-frontend: #35557e; */
+  --tech-backend: #671e49;
+  /* --tech-backend: #56193d; */
+  --tech-other: #735d85;
+  /* --tech-other: #5a4326; */
+  
   /* --color-secondary: #49465c; */
   /* --color-secondary: #595673; */
   --color-secondary-light: #0d0d0e;
@@ -49,11 +58,10 @@
   --color-accent-dark: #4B10A7;
   /* --background-gradient-color: #201c33; */
   --background-gradient-color: var(--color-main);
-  --border-gradient-color: #352e58;
+
+  --border-gradient-color: #323B4A;
   /* --border-gradient-color: rgb(76, 66, 126); */
-  --tech-frontend: rgb(76, 66, 200);
-  --tech-backend: rgb(55, 145, 135);
-  --tech-other: rgb(150, 120, 175);
+  /* --tech-backend: rgb(55, 145, 135); */
   --test-gray-color: rgb(125, 132, 145);
   --test-beige-color: rgb(238, 224, 203);
   --test-pink-color: rgb(255, 135, 171);
@@ -80,6 +88,7 @@ body {
   min-height: 100vh;
 
   background-color: var(--background-color);
+  color: var(--color-main-whitest);
 
   /* background-image: url("/src/assets/images/WebPortfolioBackGroundImage.png"); */
   /* background-position: top left; */
@@ -97,42 +106,10 @@ body::before {
   background: radial-gradient(
     circle at 32.5% 5%,
     var(--color-main),
-    var(--background-color) 20%,
-    transparent 20.1%
+    var(--color-main-darkest) 15%,
+    var(--background-color) 100%
   );
-  /* , radial-gradient(circle at 50% 50%, var(--background-gradient-color), var(--background-color) 50%), var(--background-color); */
-  /* background-repeat: repeat; */
-  /* background: linear-gradient(rgb(32, 28, 51), rgb(var(--background-color))); */
-  /* background:
-    radial-gradient(circle at 32.5% 0%, rgb(32, 28, 51), rgba(18, 18, 18, 0) 25%),
-    radial-gradient(circle at 50% 50%, rgb(32, 28, 51), rgb(18, 18, 18) 50%),
-    #121212; */
-  /* background-image:
-    radial-gradient(
-      circle 35rem at 37% 45%,
-      rgb(32, 28, 51) 0%,
-      rgb(18, 18, 18) 80%,
-      rgb(18, 18, 18) 100%
-    ),
-    radial-gradient(
-      10rem at 50% 0%,
-      rgb(42, 35, 65) 0%,
-      rgb(27, 23, 42) 45%,
-      rgb(18, 18, 18) 100%
-    );
 
-  background-size:
-    100vw 100vh,
-    auto auto;
-
-  background-position:
-    left -8rem top -10rem,
-    right -4rem top 50rem; */
-
-  /* background-size: auto; */
-  /* background: radial-gradient(at 32.5% 15%, rgb(32, 28, 51), rgb(18, 18, 18) 15% 5%, rgb(18, 18, 18) 100%); */
-
-  /* background-attachment:scroll; */
   pointer-events: none;
   z-index: 0;
 }
@@ -213,5 +190,5 @@ p {
 }
 
 .whiteText {
-  color: rgb(221, 221, 221);
+  color: var(--color-main-whitest);;
 }

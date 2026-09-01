@@ -19,7 +19,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/resumeBuilder/ResumeBuilderEditorPage.jpg",
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
       githubUrl: "https://github.com/connork97/Resume-Builder",
-      techStack: ["React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+      techStack: ["Railway", "Vercel", "React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
    },
    {
       id: "peakSync",

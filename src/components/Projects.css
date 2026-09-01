@@ -2,7 +2,6 @@
    position: relative;
    height: max-content;
    width: 100%;
-   /* background: radial-gradient(ellipse 75% 50% at 50% 50%, var(--background-gradient-color), var(--background-color) 90%, transparent 90.1%); */
 }
 
 /* .projectsContainer::before {
@@ -42,15 +41,12 @@
    display: flex;
    flex-direction: column;
    /* border: 1px solid #444444; */
-   border: 1px solid var(--background-gradient-color);
+   border: 1px solid var(--color-main-light);
    border-radius: 0.5rem;
    padding: 1rem;
    gap: 1rem;
    flex-shrink: 0;
-   /* background: radial-gradient(circle at 50% 75%, var(--background-gradient-color), var(--background-color) 50%, transparent 50.1%); */
-   background: linear-gradient(var(--background-color), var(--background-gradient-color) 200%)
-   /* background: linear-gradient(var(--background-gradient-color), var(--background-color) 50%) */
-   /* background: linear-gradient(var(--background-color), var(--background-gradient-color) 75%, var(--background-color) 90%) */
+   background: linear-gradient(var(--background-color), var(--color-main-dark) 200%)
 }
 
 .projectCardContainer * {
@@ -79,10 +75,9 @@ video {
 }
 
 .projectCardButton {
-   /* background-color: #24292f; */
-   background-color: var(--background-gradient-color);
+   background-color: var(--color-main);
    color: #ffffff;
-   border: 1px solid var(--border-gradient-color);
+   border: 1px solid var(--color-main-lighter);
    border-radius: 0.5rem;
    padding: 0.5rem 0.75rem;
 }
@@ -99,7 +94,7 @@ video {
    gap: 0.5rem;
 }
 .projectCardTechStackItem {
-   border: 1px solid #444444;
+   border: 2px solid #444444;
    border-radius: 0.5rem;
    padding: 0.25rem 0.5rem;
 }

@@ -295,7 +295,6 @@ export default function Terminal({
           <input
             ref={terminalInputRef}
             className="terminalInput"
-            style={{ border: "none", background: "transparent" }}
             value={promptInputValue}
             onKeyDown={(e) => {
               if (e.key === "Enter") {

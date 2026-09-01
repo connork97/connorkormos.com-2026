@@ -71,18 +71,15 @@
 }
 
 .helloButton {
-  background-color: var(--background-gradient-color);
-  border: 1px solid var(--border-gradient-color);
+  background-color: var(--color-main);
+  border: 1px solid var(--color-main-lighter);
   border-radius: 0.5rem;
   padding: 1rem 1rem;
   
-  /* background-color: rgb(26, 22, 41); */
   
 }
 
 .helloButtonLink {
-  /* background-color: #24292f; */
-  color: #ffffff;
   text-decoration: none;
   color: inherit;
   height: 2.5rem;
@@ -100,11 +97,6 @@
 .helloButtonLogo {
   height: 100%;
   width: auto;
-  /* color: black; */
-  /* filter: brightness(0); */
-
-  /* filter: brightness(0) saturate(100%); */
-  /* background-color: white; */
 }
 
 i[class^="devicon-"] {

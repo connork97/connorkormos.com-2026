@@ -8,12 +8,12 @@
   aspect-ratio: 16/9;
   background-color: #1e1e1e;
   border-radius: 0.5rem;
-  color: #ffffff;
   font-family: monospace;
   font-size: 1rem;
   transition: font-size 0.3s ease-in-out, height 0.3s ease-in-out, width 0.3s ease-in-out, aspect-ratio 0.3s ease-in-out;
   /* margin-bottom: 10rem; */
   z-index: 1;
+  color: var(--color-main-whitest);
 }
 
 .terminalContainer.expanded {
@@ -97,19 +97,10 @@
 .terminalInput {
   flex: 1;
   background-color: transparent;
-  color: #ffffff;
+  background: transparent;
   border: none;
   outline: none;
   caret-color: transparent;
-}
-
-
-
-.terminalOutput, .terminalOutputLine, .terminalPrompt {
-  /* margin-left: 1rem; */
-  /* white-space: pre-wrap; */
-  color: rgb(221, 221, 221);
-  /* color: var(--test-beige-color); */
 }
 
 .terminalOutputLine p {
@@ -128,7 +119,7 @@
   width: 0.5rem;
   /* bottom: 0.5rem; */
   margin-top: auto;
-  background-color: #ffffff;
+  background-color: var(--color-main-whitest);
   /* opacity: 0.75; */
   /* animation: typing 2s steps(22), blink 0.5s step-end infinite alternate; */
 }
