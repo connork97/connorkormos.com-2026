@@ -49,7 +49,7 @@ export default function ProjectCard({ project }: { project: ProjectSource }) {
       )}
       <h3 className="projectCardTitle">{project.title}</h3>
       <p className="projectCardDescription">{project.description}</p>
-      <div className="flexColumn" style={{ gap: '1rem', height: '35%', marginTop: "auto" }}>
+      <div className="projectCardLinksAndTechWrapper">
         <div className="projectCardLinks">
           <button className="projectCardButton">
             <a

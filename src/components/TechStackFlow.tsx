@@ -219,7 +219,7 @@ export default function TechStackFlow() {
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{width: '100%', height: '50rem'}}>
+      <div style={{width: '100%', height: '35rem'}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

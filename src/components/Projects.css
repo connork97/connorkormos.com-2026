@@ -27,7 +27,8 @@
    /* overflow-x: auto; */
    overflow-x: hidden;
    overflow-y: hidden;
-   gap: 3rem;
+   /* row-gap: 3rem; */
+   row-gap: clamp(1rem, 1.5rem, 3rem);
    scrollbar-color: #444444 transparent;
    padding-bottom: 1rem;
    /* background: radial-gradient(ellipse 75% 50% at 50% 50%, var(--background-gradient-color), var(--background-color) 90%, transparent 90.1%); */
@@ -37,7 +38,7 @@
 .projectCardContainer {
 
    position: relative;
-   width: clamp(20rem, 30%, 90%);
+   width: clamp(20rem, 32%, 90%);
    display: flex;
    flex-direction: column;
    /* border: 1px solid #444444; */
@@ -65,6 +66,17 @@ video {
 
 .projectCardDescription {
    text-align: justify;
+}
+
+.projectCardLinksAndTechWrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   /* width: clamp(50%, fit-content, 100%); */
+   margin-bottom: 1rem;
+   /* justify-content: space-between; */
+   height: 35%;
+   margin-top: auto;
 }
 
 .projectCardLinks {

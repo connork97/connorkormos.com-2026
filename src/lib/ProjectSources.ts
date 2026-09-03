@@ -19,7 +19,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/resumeBuilder/ResumeBuilderEditorPage.jpg",
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
       githubUrl: "https://github.com/connork97/Resume-Builder",
-      techStack: ["Railway", "Vercel", "React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Redux", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Railway"],
    },
    {
       id: "peakSync",
@@ -30,7 +30,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/peaksync/PeakSyncHomePage.png",
       liveDemoUrl: "https://peaksync.onrender.com/",
       githubUrl: "https://github.com/connork97/peaksync",
-      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Render"],
    },
    {
       id: "iogearProductPages",
@@ -63,7 +63,7 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/shadle/ShadleHomepage.jpg",
       liveDemoUrl: "https://shadle.web.app",
       githubUrl: "https://github.com/connork97/shadle",
-      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Firebase", "Render", "AWS"],
    },
    {
       id: "portfolio",
@@ -74,6 +74,6 @@ export const ProjectsSources: ProjectSource[] = [
       mediaSource: "src/assets/portfolio/PortfolioHomepage.jpg",
       liveDemoUrl: "https://www.connorkormos.com",
       githubUrl: "https://github.com/connork97/connorkormos.com-2026",
-      techStack: ["Next.js", "React", "TypeScript", "HTML", "CSS", "Context API", "React Router"],
+      techStack: ["Next.js", "React", "TypeScript", "HTML", "CSS", "Context API", "React Router", "Vercel"],
    }
 ];
