@@ -27,7 +27,7 @@
   pointer-events: none;
 
   background-image: radial-gradient(var(--color-main) 1px, transparent 1px);
-  background-size: 50px 50px;
+  background-size: 75px 75px;
 
   mask-image: radial-gradient(
     ellipse 75% 100% at center,
