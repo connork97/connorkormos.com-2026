@@ -56,6 +56,7 @@ export const techStackSources: Record<string, TechStackSource> = {
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-plain.svg",
   },
+  
   sql: {
     name: "SQL",
     type: "backEnd",
@@ -105,13 +106,7 @@ export const techStackSources: Record<string, TechStackSource> = {
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg",
   },
-  bootstrap: {
-    name: "Bootstrap",
-    type: "frontEnd",
-    category: "framework",
-    yearsExperience: 3,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
-  },
+
   reactBootstrap: {
     name: "React Bootstrap",
     type: "frontEnd",
@@ -231,6 +226,27 @@ export const techStackSources: Record<string, TechStackSource> = {
     category: "tool",
     yearsExperience: 1,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg",
+  },
+  npm: {
+    name: "npm",
+    type: "other",
+    category: "tool",
+    yearsExperience: 4,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
+  },
+  postman: {
+    name: "Postman",
+    type: "other",
+    category: "tool",
+    yearsExperience: 3,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+  },
+  docker: {
+    name: "Docker",
+    type: "other",
+    category: "tool",
+    yearsExperience: 2,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
   },
 
 };
