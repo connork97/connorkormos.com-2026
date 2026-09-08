@@ -159,7 +159,7 @@ export default function TechStackFlow() {
       techStackSources[node.id as keyof typeof techStackSources],
     );
     if (!node.style) {
-      node.style = { width: 40, height: 40, padding: 5 };
+      node.style = { width: 60, height: 60, padding: 5 };
     }
     node.data.yearsExperience =
       techStackSources[
@@ -205,7 +205,7 @@ export default function TechStackFlow() {
   initialEdges.forEach((edge) => {
     // edge.type = "smoothstep";
     edge.animated = true;
-    //  edge.style = { stroke: "#000" };
+     edge.style = { stroke: "var(--color-main-lighter)" };
   });
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
@@ -215,11 +215,11 @@ export default function TechStackFlow() {
     <div className="mainContentContainer techStackContainer">
       {/* <h1 style={{ margin: "auto", textAlign: "center" }}> */}
       <h1 className="titleSecondary">
-        My Primary Tech Stack
+        Primary Tech Stack
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{width: '100%', height: '35rem'}}>
+      <div style={{width: '100%', height: '40rem'}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}

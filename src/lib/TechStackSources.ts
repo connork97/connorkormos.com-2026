@@ -42,6 +42,20 @@ export const techStackSources: Record<string, TechStackSource> = {
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
   },
+  nextJs: {
+    name: "Next.js",
+    type: "frontEnd",
+    category: "framework",
+    yearsExperience: 2,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  },
+   jQuery: {
+    name: "jQuery",
+    type: "frontEnd",
+    category: "library",
+    yearsExperience: 3,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-plain.svg",
+  },
   sql: {
     name: "SQL",
     type: "backEnd",
@@ -90,20 +104,6 @@ export const techStackSources: Record<string, TechStackSource> = {
     category: "library",
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg",
-  },
-  jQuery: {
-    name: "jQuery",
-    type: "frontEnd",
-    category: "library",
-    yearsExperience: 3,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-plain.svg",
-  },
-  nextJs: {
-    name: "Next.js",
-    type: "frontEnd",
-    category: "framework",
-    yearsExperience: 2,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
   },
   bootstrap: {
     name: "Bootstrap",
@@ -188,6 +188,13 @@ export const techStackSources: Record<string, TechStackSource> = {
     category: "tool",
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg",
+  },
+  linux: {
+    name: "Linux",
+    type: "other",
+    category: "tool",
+    yearsExperience: 3,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg",
   },
   railway: {
     name: "Railway",
