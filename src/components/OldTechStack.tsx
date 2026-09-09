@@ -1,4 +1,3 @@
-import { FaServer } from "react-icons/fa6";
 import "../App.css";
 import "./TechStack.css";
 

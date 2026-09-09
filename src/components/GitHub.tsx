@@ -128,13 +128,13 @@ export default function GitHub() {
           {monthLabel}
         </span>
         {week.contributionDays.map((day, dayIndex) => {
-          const contributionColorsLight = [
-            "#ebedf0",
-            "#9be9a8",
-            "#40c463",
-            "#30a14e",
-            "#216e39",
-          ];
+          // const contributionColorsLight = [
+          //   "#ebedf0",
+          //   "#9be9a8",
+          //   "#40c463",
+          //   "#30a14e",
+          //   "#216e39",
+          // ];
           const contributionColorsDark = [
             "#2121219d",
             "#0e4429",
@@ -166,7 +166,7 @@ export default function GitHub() {
   return (
     <div className="mainContentContainer">
       <div className="gitHubContentContainer">
-        <h2 className="titleSecondary center">GitHub Activity</h2>
+        <h2 className="titleSecondary">GitHub Activity</h2>
         <div className="gitHubCalendarWrapper">
           <div className="gitHubWeekDaysWrapper">
             <span>Mon</span>

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import { FaEnvelope, FaPhone } from "react-icons/fa";
 import { LuDownload } from "react-icons/lu";
-import { TbDownloadFilled } from "react-icons/tb";
 
 import "../App.css";
 import "./Hello.css";
@@ -122,7 +121,7 @@ export default function Hello({
     typingDelay,
   ]);
 
-  const caret = <span className="caret">_</span>;
+  // const caret = <span className="caret">_</span>;
 
   return (
     <div

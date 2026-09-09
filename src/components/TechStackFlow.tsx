@@ -6,12 +6,12 @@ import {
   Position,
   applyEdgeChanges,
   applyNodeChanges,
-  Background,
+  // Background,
   type Edge,
   type EdgeChange,
   type Node,
   type NodeChange,
-  type CoordinateExtent,
+  // type CoordinateExtent,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -28,10 +28,10 @@ type TechStackData = {
 
 type TechStackNode = Node<TechStackData>;
 
-const nodeExtent: CoordinateExtent = [
-  [-200, -225],
-  [250, 250],
-];
+// const nodeExtent: CoordinateExtent = [
+//   [-200, -225],
+//   [250, 250],
+// ];
 
 export default function TechStackFlow() {
   const onNodesChange = useCallback(
@@ -79,70 +79,70 @@ export default function TechStackFlow() {
   const initialNodes: TechStackNode[] = [
     {
       id: "javaScript",
-      position: { x: -175, y: -215 },
+      position: { x: -300, y: -300 },
       data: {
         label: techStackNodeLabel(techStackSources.javaScript),
       },
     },
     {
       id: "typeScript",
-      position: { x: -75, y: -200 },
+      position: { x: -125, y: -275 },
       data: {
         label: techStackNodeLabel(techStackSources.typeScript),
       },
     },
     {
       id: "html",
-      position: { x: 75, y: -200 },
+      position: { x: 125, y: -275 },
       data: {
         label: techStackNodeLabel(techStackSources.html),
       },
     },
     {
       id: "css",
-      position: { x: 175, y: -215 },
+      position: { x: 300, y: -300 },
       data: {
         label: techStackNodeLabel(techStackSources.css),
       },
     },
     {
       id: "reactRouter",
-      position: { x: -125, y: -100 },
+      position: { x: -220, y: -175 },
       data: {
         label: techStackNodeLabel(techStackSources.reactRouter),
       },
     },
     {
       id: "react",
-      position: { x: 0, y: -75 },
+      position: { x: 0, y: -125 },
       data: {
         label: techStackNodeLabel(techStackSources.react),
       },
     },
     {
       id: "redux",
-      position: { x: 125, y: -100 },
+      position: { x: 220, y: -175 },
       data: {
         label: techStackNodeLabel(techStackSources.redux),
       },
     },
     {
       id: "python",
-      position: { x: -125, y: 25 },
+      position: { x: -175, y: -25 },
       data: {
         label: techStackNodeLabel(techStackSources.python),
       },
     },
     {
       id: "flask",
-      position: { x: 0, y: 50 },
+      position: { x: 0, y: 25 },
       data: {
         label: techStackNodeLabel(techStackSources.flask),
       },
     },
     {
       id: "sqlAlchemy",
-      position: { x: 125, y: 25 },
+      position: { x: 175, y: -25 },
       data: {
         label: techStackNodeLabel(techStackSources.sqlAlchemy),
       },
@@ -159,7 +159,7 @@ export default function TechStackFlow() {
       techStackSources[node.id as keyof typeof techStackSources],
     );
     if (!node.style) {
-      node.style = { width: 60, height: 60, padding: 5 };
+      node.style = { width: 70, height: 70, padding: 10 };
     }
     node.data.yearsExperience =
       techStackSources[
@@ -219,7 +219,7 @@ export default function TechStackFlow() {
       </h1>
       {/* <div style={{height: "45rem", width: "auto" }}> */}
       {/* <div style={{height: 'clamp(10vh, 45rem, 90vh)', width: 'clamp(50%, 45rem, 90%)', margin: 'auto'}}> */}
-      <div style={{width: '100%', height: '40rem'}}>
+      <div style={{width: '100%', height: '55rem', position: 'relative', marginTop: '-5rem', marginBottom: '2.5rem'}}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -258,7 +258,7 @@ export default function TechStackFlow() {
               </div>
             </NodeToolbar>
           )}
-          <div
+          {/* <div
             style={{ position: "absolute", bottom: 10, right: 10, zIndex: 4 }}
           >
             <button
@@ -269,7 +269,7 @@ export default function TechStackFlow() {
             >
               Reset Flow
             </button>
-          </div>
+          </div> */}
           {/* <Background style={{background: 'transparent'}} /> */}
           {/* <Controls /> */}
         </ReactFlow>

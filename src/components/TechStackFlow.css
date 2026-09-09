@@ -1,11 +1,14 @@
 .react-flow {
   border: 1px solid #444444;
   border-radius: 1rem;
+  padding-bottom: 65rem;
 }
 
 .react-flow__node {
   width: auto;
   height: auto;
+  background-color: var(--color-main-darker);
+  border: 1px solid var(--color-main);
 }
 
 .react-flow__handle {
@@ -51,10 +54,11 @@
   text-align: center;
   font-weight: bold;
   padding: 1rem;
-  border: 1px solid rgb(255 255 255 / 12%);
+  border: 1px solid var(--color-main-light);
+  /* border: 1px solid rgb(255 255 255 / 12%); */
   border-radius: 0.75rem;
-  color: #f3f4f6;
-  background: #21242b;
+  /* color: #f3f4f6; */
+  background: var(--color-main-dark);
   box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 35%);
   pointer-events: none;
 }
@@ -63,7 +67,7 @@
   background: transparent;
 
   border: none;
-  border-radius: 15rem;
+  /* border-radius: 15rem; */
 }
 
 /* .reactFlowElement::before {

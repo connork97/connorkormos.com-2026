@@ -11,7 +11,7 @@ import {
   type EdgeChange,
   type Node,
   type NodeChange,
-  type CoordinateExtent,
+  // type CoordinateExtent,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
@@ -28,10 +28,10 @@ type TechStackData = {
 
 type TechStackNode = Node<TechStackData>;
 
-const nodeExtent: CoordinateExtent = [
-  [-200, -225],
-  [250, 250],
-];
+// const nodeExtent: CoordinateExtent = [
+//   [-200, -225],
+//   [250, 250],
+// ];
 
 export default function TechStackSecondary() {
   const onNodesChange = useCallback(

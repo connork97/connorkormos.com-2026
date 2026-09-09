@@ -106,7 +106,13 @@ export const techStackSources: Record<string, TechStackSource> = {
     yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg",
   },
-
+  bootstrap: {
+    name: "Bootstrap",
+    type: "frontEnd",
+    category: "library",
+    yearsExperience: 3,
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
+  },
   reactBootstrap: {
     name: "React Bootstrap",
     type: "frontEnd",
@@ -154,7 +160,8 @@ export const techStackSources: Record<string, TechStackSource> = {
     type: "backEnd",
     category: "library",
     yearsExperience: 1,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
+    // src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
+    src: "https://devicon-website.vercel.app/api/socketio/original.svg?color=%23FFFFFF",
   },
   git: {
     name: "Git",
@@ -203,7 +210,8 @@ export const techStackSources: Record<string, TechStackSource> = {
     type: "deployment",
     category: "other",
     yearsExperience: 3,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
+    // src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg",
+    src: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/vercel-light.svg",
   },
   render: {
     name: "Render",
@@ -231,7 +239,7 @@ export const techStackSources: Record<string, TechStackSource> = {
     name: "npm",
     type: "other",
     category: "tool",
-    yearsExperience: 4,
+    yearsExperience: 3,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
   },
   postman: {
@@ -245,7 +253,7 @@ export const techStackSources: Record<string, TechStackSource> = {
     name: "Docker",
     type: "other",
     category: "tool",
-    yearsExperience: 2,
+    yearsExperience: 1,
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
   },
 
