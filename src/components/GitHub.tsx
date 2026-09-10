@@ -19,48 +19,8 @@ export default function GitHub() {
     weeks: [],
   });
 
-  const fetchGitHubContributions = async () => {
-    const now = new Date();
-    const from = new Date(now.getFullYear(), 0, 1).toISOString();
-    const to = now.toISOString();
-
-    const response = await fetch("https://api.github.com/graphql", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-        "Content-Type": "application/json",
-        Accept: "application/vnd.github+json",
-      },
-      body: JSON.stringify({
-        query: `
-          query($from: DateTime!, $to: DateTime!) {
-            user(login: "connork97") {
-              contributionsCollection(from: $from, to: $to) {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: {
-          from,
-          to,
-        },
-      }),
-    });
-
-    const gitHubData = await response.json();
-    setGitHubData(
-      gitHubData.data.user.contributionsCollection.contributionCalendar,
-    );
-  };
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const parseUtcDate = (dateString: string) => {
     const [year, month, day] = dateString.split("-").map(Number);
@@ -68,15 +28,34 @@ export default function GitHub() {
   };
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchData = async () => {
-      await fetchGitHubContributions();
+      try {
+        const response = await fetch("/api/github-contributions", {
+          signal: controller.signal,
+        });
+        if (!response.ok) throw new Error("Contribution request failed");
+        const data: GitHubData = await response.json();
+        if (
+          !Array.isArray(data.weeks) ||
+          typeof data.totalContributions !== "number"
+        ) {
+          throw new Error("Invalid contribution response");
+        }
+        if (!controller.signal.aborted) setGitHubData(data);
+      } catch {
+        if (!controller.signal.aborted) {
+          setError(
+            "Unable to load GitHub contributions. Please try again later.",
+          );
+        }
+      } finally {
+        if (!controller.signal.aborted) setLoading(false);
+      }
     };
-    fetchData();
+    void fetchData();
+    return () => controller.abort();
   }, []);
-
-  useEffect(() => {
-    console.log("GitHub Data Updated:", gitHubData);
-  }, [gitHubData]);
 
   const gitHubWeeks = gitHubData.weeks.map((week, weekIndex) => {
     const monthsOfYear = [
@@ -149,6 +128,8 @@ export default function GitHub() {
           } else {
             color = contributionColorsDark[contributionCount];
           }
+          // const contributionCount = Math.min(day.contributionCount, 4);
+          // const color = contributionColorsDark[contributionCount];
 
           return (
             <div
@@ -173,11 +154,19 @@ export default function GitHub() {
             <span>Wed</span>
             <span>Fri</span>
           </div>
-          {gitHubData.weeks ? gitHubWeeks : <p>Loading contributions...</p>}
+          {loading ? (
+            <p role="status">Loading contributions...</p>
+          ) : error ? (
+            <p role="alert">{error}</p>
+          ) : (
+            gitHubWeeks
+          )}
         </div>
-        <p className="textSecondary">
-          Year to Date Contributions: {gitHubData.totalContributions || 0}
-        </p>
+        {!loading && !error && (
+          <p className="textSecondary">
+            Year to Date Contributions: {gitHubData.totalContributions}
+          </p>
+        )}
         <span className="textSecondary">
           <a
             href="https://github.com/connork97"
