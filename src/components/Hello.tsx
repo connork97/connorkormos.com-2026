@@ -199,7 +199,7 @@ export default function Hello({
           target="_blank"
           rel="noopener noreferrer"
         >
-          My Resume
+          Resume
           <LuDownload style={{scale: 1.2, marginBottom: '0.1rem'}} className="helloButtonReactIcon" />
           {/* <TbDownloadFilled className="helloButtonReactIcon" /> */}
         </a>
