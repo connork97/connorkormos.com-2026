@@ -1,8 +1,9 @@
-import resumeImage from "../assets/resumeBuilder/ResumeBuilderEditorPage.jpg";
+import resumeImage from "../assets/resumeBuilder/ResumeBuilderEditor.jpg";
 import peakSyncImage from "../assets/peaksync/PeakSyncHomePage.png";
 import iogearProductVideo from "../assets/iogear/iogear_product_pages.mp4";
 import iogearCesVideo from "../assets/iogear/iogear_ces_2024.mp4";
-import shadleImage from "../assets/shadle/ShadleHomepage.jpg";
+import shadleImage from "../assets/shadle/ShadleGamePage.jpg";
+import portfolioImage from "../assets/webPortfolio/WebPortfolio.jpg";
 
 export type ProjectSource = {
    id: string;
@@ -20,7 +21,7 @@ export const ProjectsSources: ProjectSource[] = [
       id: "resumeBuilder",
       title: "Resume Builder",
       description:
-         "A web application that allows users to create and customize their resumes with ease. Users can choose from various templates, add their personal information, and download the final resume in PDF format.",
+         "Notion style rich text editor, prioritizing customizability for building single page resumes.  Users can easily create, edit, save, and download their resumes.  This site is where my own personal resume was created!",
          mediaType: "image",
       mediaSource: resumeImage,
       liveDemoUrl: "https://free-resume-builder.up.railway.app/home",
@@ -31,18 +32,18 @@ export const ProjectsSources: ProjectSource[] = [
       id: "peakSync",
       title: "PeakSync",
       description:
-         "A web application that allows users to track their fitness progress and set goals. Users can log their workouts, monitor their performance, and visualize their progress over time.",
+         "Inspired by my time working in the climbing industry, this application acts both as a climbing gym's main website, as well as a fully functional database management system.",
          mediaType: "image",
       mediaSource: peakSyncImage,
       liveDemoUrl: "https://peaksync.onrender.com/",
       githubUrl: "https://github.com/connork97/peaksync",
-      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Render"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Render", "AWS", "Railway"],
    },
    {
       id: "iogearProductPages",
       title: "IOGEAR Product Pages",
       description:
-         "A web application that provides detailed information about IOGEAR products. Users can browse through various product categories, view product specifications, and read customer reviews.",
+         "One example of the many product pages I worked on during my time at IOGEAR.  Built from the marketing team's markups, focusing on clean, modern, and responsive design.",
       mediaType: "video", 
       mediaSource: iogearProductVideo,
       liveDemoUrl: "https://support.iogear.com/product/ghdsw8k4",
@@ -53,7 +54,7 @@ export const ProjectsSources: ProjectSource[] = [
       id: "iogearCesLandingPage",
       title: "IOGEAR CES Landing Page",
       description:
-         "A landing page for IOGEAR's CES event. The page provides information about the event, showcases IOGEAR's products, and allows users to register for the event.",
+         "IOGEAR's landing page for CES 2024, highlighting their latest products, event information, complete with RSVP functionality and automated emails for attendees.",
       mediaType: "video",
       mediaSource: iogearCesVideo,
       liveDemoUrl: "https://support.iogear.com/ces2024",
@@ -64,20 +65,20 @@ export const ProjectsSources: ProjectSource[] = [
       id: "shadle",
       title: "Shadle",
       description:
-         "A web application that allows users to share and discover short videos. Users can upload their own videos, browse through trending videos, and interact with other users through comments and likes.",
+         "A mobile first, Wordle inspired RGB color guessing game, complete with stat tracking both individually and globally.",
       mediaType: "image",
       mediaSource: shadleImage,
       liveDemoUrl: "https://shadle.web.app",
       githubUrl: "https://github.com/connork97/shadle",
-      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Firebase", "Render", "AWS"],
+      techStack: ["React", "JavaScript", "HTML", "CSS", "Context API", "React Router", "Python", "Flask", "SQLAlchemy", "PostgreSQL", "Firebase", "Render", "AWS", "Railway"],
    },
    {
       id: "portfolio",
       title: "Portfolio Website",
       description:
-         "A personal portfolio website that showcases my projects, skills, and experience. The website provides information about me, my work, and allows users to contact me.",
+         "This website you are on currently!  Built to showcase my projects, skills, and experience.  Enjoy!",
       mediaType: "image",
-      mediaSource: "src/assets/portfolio/PortfolioHomepage.jpg",
+      mediaSource: portfolioImage,
       liveDemoUrl: "https://www.connorkormos.com",
       githubUrl: "https://github.com/connork97/connorkormos.com-2026",
       techStack: ["Next.js", "React", "TypeScript", "HTML", "CSS", "Context API", "React Router", "Vercel"],
